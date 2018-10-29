@@ -87,7 +87,7 @@
   #menu>ul>li>a:hover {
     color: orange;
   }
-  /*搜索框和发布*/
+  /*搜索框*/
   #searchAndPublic {
     width: 240px;
     float: right;
@@ -113,13 +113,7 @@
   .icon-sousuo:hover {
     cursor: pointer;
   }
-  .icon-add {
-    color: white;
-    font-size: 24px;
-    vertical-align: middle;
-    display: inline-block;
-    transition: all 0.2s linear;
-  }
+  /*发布*/
   #dropDownMenu {
     position: relative;
     margin-left: 16px;
@@ -128,11 +122,19 @@
     text-align: center;
     height: 45px;
   }
+  .icon-add {
+    color: white;
+    font-size: 24px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: all 0.2s linear;
+  }
+  /*二级菜单*/
   #dropDownMenu>ul{
     background-color: #222;
     width: 120px;
     right: -40px;
-    top: 46px;
+    top: 45px;
     visibility: hidden;
     position: absolute;
     /*z-index: 1;*/
@@ -162,9 +164,6 @@
   #dropDownMenu>ul>li>a {
     color: white;
   }
-  #dropDownMenu>ul>li>:hover {
-    color: orange;
-  }
   #dropDownMenu>ul>li>a:hover {
     color: orange;
   }
@@ -175,7 +174,7 @@
   #dropDownMenu:hover>.icon-add {
     transform: rotate(90deg);
   }
-
+  /*显示二级*/
   #dropDownMenu:hover ul{
     /*display: block;*/
     /*opacity: 1;*/
