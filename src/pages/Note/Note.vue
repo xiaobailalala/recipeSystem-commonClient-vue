@@ -1,11 +1,9 @@
 <template>
-    <div></div>
+  <div>
+    写食派
+  </div>
 </template>
 
 <script>
-  export default {}
+export default {}
 </script>
-
-<style>
-
-</style>

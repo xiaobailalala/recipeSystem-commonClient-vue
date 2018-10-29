@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+  <div>
+    时令食材
+  </div>
 </template>
 
 <script>

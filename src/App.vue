@@ -1,5 +1,8 @@
 <template>
-  <headerTop/>
+  <div>
+    <headerTop v-show="$route.meta.showFooter"/>
+    <router-view />
+  </div>
 </template>
 
 <script>

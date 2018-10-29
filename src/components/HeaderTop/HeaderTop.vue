@@ -8,8 +8,8 @@
       </a>
       <!--顶部登录注册-->
       <div id="logOrReg">
-        <span><a href="">登录</a></span>
-        <span><a href="">注册</a></span>
+        <span><a href="javascript:;" @click="goto('/login')">登录</a></span>
+        <span><a href="javascript:;" @click="goto('/register')">注册</a></span>
         <span><a href="">下载客户端</a></span>
       </div>
     </div>
@@ -20,22 +20,22 @@
         <ul>
           <li>
             <i class="iconfont icon-home"></i>
-            <a href="#">首页</a>
+            <a a href="javascript:;" @click="goto('/homepage')">首页</a>
           </li>
           <li>
-            <a href="#">食谱分类</a>
+            <a href="javascript:;" @click="goto('/recipes')">食谱分类</a>
           </li>
           <li>
-            <a href="#">时令食材</a>
+            <a href="javascript:;" @click="goto('/food')">时令食材</a>
           </li>
           <li>
-            <a href="#">精选</a>
+            <a href="javascript:;" @click="goto('/selected')">精选</a>
           </li>
           <li>
-            <a href="#">写食派</a>
+            <a href="javascript:;" @click="goto('/note')">写食派</a>
           </li>
           <li>
-            <a href="#">商铺</a>
+            <a href="javascript:;" @click="goto('/shop')">商铺</a>
           </li>
         </ul>
         <div id="searchAndPublic">
@@ -46,10 +46,10 @@
             <i class="iconfont icon-add"></i>
             <ul>
               <li>
-                <a href=""><i class="iconfont icon-spoonknife"></i>食谱创作</a>
+                <a href="javascript:;" @click="goto('/foodwrite')"><i class="iconfont icon-spoonknife"></i>食谱创作</a>
               </li>
               <li>
-                <a href=""><i class="iconfont icon-note"></i>美食随笔</a>
+                <a href="javascript:;" @click="goto('/notecreated')"><i class="iconfont icon-note"></i>美食随笔</a>
               </li>
             </ul>
           </span>
@@ -61,5 +61,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    goto (path) {
+      this.$router.replace(path)
+    }
+  }
+}
 </script>

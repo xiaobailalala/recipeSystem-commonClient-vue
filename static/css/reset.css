@@ -82,3 +82,8 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/*手动添加*/
+a:hover {
+  text-decoration: none;
+}

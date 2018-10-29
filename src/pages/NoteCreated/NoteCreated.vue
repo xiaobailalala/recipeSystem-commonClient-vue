@@ -1,11 +1,13 @@
 <template>
-    <div>
-      
-    </div>
+  <div>
+    <headerTop/>
+    美食随笔
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+}
 </script>
 
 <style>

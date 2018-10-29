@@ -1,9 +1,12 @@
 <template>
-    <div></div>
+  <div>
+    商店
+  </div>
 </template>
 
 <script>
-  export default {}
+export default {
+}
 </script>
 
 <style>
