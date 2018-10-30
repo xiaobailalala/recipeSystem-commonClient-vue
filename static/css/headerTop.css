@@ -2,7 +2,7 @@
   #headerLogo {
     width: 1000px;
     height: 94px;
-    margin: auto;
+    margin: 0px auto;
   }
   /*顶部logo*/
   #headerLogo>a{
@@ -26,6 +26,7 @@
     padding-right: 7px;
     transition: color .3s linear;
     font-size: 16px;
+    color: black;
   }
   #logOrReg>span>a:hover {
     color: #F08E02;
@@ -41,7 +42,7 @@
   #menu {
     width: 1000px;
     height: 60px;
-    margin: auto;
+    margin: 0px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
