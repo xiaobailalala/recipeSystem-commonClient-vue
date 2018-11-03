@@ -309,14 +309,50 @@
               </a>
               <div class="lookContent">
                 <a href="javascript">我是标题我也不知道我要叫什么</a>
-                <p>我是属性啊美文或者食谱</p>
+                <p class="meiwen">美文</p>
                 <span>作者：<a href="javascript">lalala</a></span>
                 <span>看过：99</span>
               </div>
             </li>
+            <li>
+              <a href="javascript" class="lookSize">
+                <img src="./images/activeImg/active3.png" alt="" class="Img">
+              </a>
+              <div class="lookContent">
+                <a href="javascript">我是标题我也不知道我要叫什么</a>
+                <p class="shipu">食谱</p>
+                <span>作者：<a href="javascript">lalala</a></span>
+                <span>看过：99</span>
+              </div>
+            </li>
+            <li>
+              <a href="javascript" class="lookSize">
+                <img src="./images/activeImg/active2.png" alt="" class="Img">
+              </a>
+              <div class="lookContent">
+                <a href="javascript">我是标题我也不知道我要叫什么</a>
+                <p class="meiwen">美文</p>
+                <span>作者：<a href="javascript">lalala</a></span>
+                <span>看过：99</span>
+              </div>
+            </li>
+            <li>
+              <a href="javascript" class="lookSize">
+                <img src="./images/activeImg/active3.png" alt="" class="Img">
+              </a>
+              <div class="lookContent">
+                <a href="javascript">我是标题我也不知道我要叫什么</a>
+                <p class="shipu">食谱</p>
+                <span>作者：<a href="javascript">lalala</a></span>
+                <span>看过：99</span>
+              </div>
+            </li>
+            <div class="clear"></div>
 
           </ul>
+          <div class="clear"></div>
         </div>
+        <div class="clear"></div>
       </div>
     </div>
   </div>
@@ -365,12 +401,13 @@ export default {
   .content {
     width: 1000px;
     margin: 0 auto;
-    height: 750px;
   }
   .bg {
     width: 100%;
-    height: 1000px;
-    background: url("./images/bg.png");
+    /*height: 1000px;*/
+    padding-bottom: 50px;
+    margin-top: 50px;
+    background-image: url("./images/bg.png");
   }
 /*推荐食谱*/
   #foodRecommend {
@@ -502,14 +539,12 @@ export default {
   /*活动*/
   #active {
     width: 100%;
-    height: 480px;
     line-height: 1.5;
     color: white;
   }
   #active>ul {
     width: 100%;
     margin-top: 10px;
-    height: 400px;
   }
   #active>ul>li {
     margin-top: 30px;
@@ -564,12 +599,11 @@ export default {
 /*新闻*/
   #newAct {
     width: 100%;
-    height: 1000px;
     margin-top: 40px;
   }
   #left {
     width: 650px;
-    height: 870px;
+    /*height: 870px;*/
     border: 1px solid #ebebeb;
     display: inline-block;
     transition: all 0.2s linear;
@@ -607,7 +641,7 @@ export default {
     margin: 20px 0px;
   }
   #left>ul>li>a>p:first-child {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.5;
     font-weight: normal;
     margin: 10px 0;
@@ -639,10 +673,11 @@ export default {
   .authorDate {
     margin-top: 10px;
     color: gray;
+    font-size: 15px;
   }
   .authorDate>i {
-    font-size: 22px;
-    margin-right: 5px;
+    font-size: 20px;
+    margin-right: 4px;
     color: black;
   }
   .authorDate>a {
@@ -663,13 +698,15 @@ export default {
   /*大家都在看*/
   #right {
     width: 335px;
-    height: 500px;
+    /*height: 650px;*/
     float: right;
-    border: 1px solid red;
+    background-color: white;
+    border: 1px solid #ebebeb;
+    padding: 10px 10px 30px 10px;
   }
   #right>h3 {
     font-size: 18px;
-    padding: 20px 10px 10px 10px;
+    padding: 10px 10px 20px 0px;
   }
   #right>ul {
     width: 100%;
@@ -677,22 +714,59 @@ export default {
   }
   #right>ul>li {
     width: 100%;
-    height: 100px;
-    border: 1px solid blueviolet;
+    /*height: 100px;*/
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dotted gray;
+  }
+  #right>ul>li:last-of-type {
+    border: none;
   }
   .lookSize {
     width: 120px;
     height: 100px;
-    border: 1px solid blue;
     overflow: hidden;
     /*float: left;*/
     display: inline-block;
     border-radius: 5px;
   }
   .lookContent {
-    width: 210px;
+    width: 180px;
     height: 100%;
     float: right;
-    background-color: #f0ad4e;
+    /*padding-right: 20px;*/
+  }
+  .lookContent>a {
+    font-size: 17px;
+    display: block;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .meiwen {
+    background-color: orange;
+  }
+  .shipu {
+    background-color: #337ab7;
+    color: white;
+  }
+  .lookContent>p {
+    margin: 20px 5px;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 2px;
+    line-height: 20px;
+  }
+  .lookContent>span {
+    font-size: 15px;
+  }
+  .lookContent>span>a:hover,.lookContent>a:hover {
+    color: #F08E02;
+  }
+  .lookContent>span:last-child {
+    float: right;
   }
 </style>
