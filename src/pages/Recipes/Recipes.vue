@@ -1,45 +1,55 @@
 <template>
   <div>
-    <div class="product sub_pro"> <div class="product01">
-      <!--产品分类开始-->
-      <div class="product07"><b> 产品中心</b></div>
-      <div class="sidenav">
-        <ul>
-          <li><a href="/home/Article/lists.html?tid=36" title="川菜" class="sidenava ">
-            <p>川菜</p>
-          </a></li>
-          <li><a href="/home/Article/lists.html?tid=37" title="粤菜" class="sidenava ">
-            <p>粤菜</p>
-          </a></li>
-          <li><a href="/home/Article/lists.html?tid=38" title="卤菜" class="sidenava ">
-            <p>卤菜</p>
-          </a></li>
-          <li><a href="/home/Article/lists.html?tid=39" title="闽菜" class="sidenava ">
-            <p>闽菜</p>
-          </a></li>
-          <li><a href="/home/Article/lists.html?tid=44" title="湘菜" class="sidenava ">
-            <p>湘菜</p>
-          </a></li>
-          <li><a href="/home/Article/lists.html?tid=45" title="琼菜" class="sidenava ">
-            <p>琼菜</p>
-          </a></li>
-        </ul>
+    <div class="productMenu">
+      <div class="proLeft">
+        <!--一二级食谱分类开始-->
+        <div class="proLeftTitle"><b> 食谱分类</b></div>
+        <div class="sidenav">
+          <ul>
+            <li v-for="(item, index) in menuList" :key="index">
+              <a href="javascript:;" @click="bindMenu(index)" class="sidenava">
+                <p>
+                  {{item.content }}
+                  <i class="iconfont" :class="item.style"></i>
+                </p>
+              </a>
+              <transition name="slide-fade">
+                <ol v-if="item.isShow" class="secMenu">
+                  <li v-for="(item1, index1) in item.second" data-index="index1" :key="index1">{{item1}}</li>
+                </ol>
+              </transition>
+            </li>
+          </ul>
+        </div>
+        <!--一二级食谱分类开始-->
       </div>
 
-      <!--产品分类结束-->
-    </div>
-
-      <div class="product02">
-        <div class="content_com_title">
-          <h2>产品中心</h2>
-          <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 产品中心</div>
+      <div class="proRight">
+        <div class="proRightTitle">
+          <h2>热门</h2>
+          <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 食谱分类 &gt; 热门</div>
         </div>
-        <!--产品列表开始-->
-        <div class="content">
-          <ul class="product3">
+        <div class="recContent">
+
+          <!--三级菜单开始-->
+          <ul class="thMenu">
+            <li>视频菜谱</li>
+            <li>苦瓜</li>
+            <li>丝瓜</li>
+            <li>茭白</li>
+            <li>西红柿</li>
+            <li>土豆</li>
+            <li>茄子</li>
+            <li>菠菜</li>
+            <li>豆角</li>
+          </ul>
+          <!--三级菜单结束-->
+
+          <!--菜单内容开始-->
+          <ul class="menuContent">
             <li>
               <div>
-                <a href="javascript:;" title="产品标题六">
+                <a href="javascript:;" title="产品标题六" class="proImg">
                   <img src="./images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
@@ -47,52 +57,70 @@
             </li>
             <li>
               <div>
-                <a href="javascript:;" title="产品标题六">
-                  <img src="./images/product/product1.png" alt="产品标题六">
+                <a href="javascript:;" title="产品标题六" class="proImg">
+                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
             </li>
             <li>
               <div>
-                <a href="javascript:;" title="产品标题六">
-                  <img src="./images/product/product1.png" alt="产品标题六">
+                <a href="javascript:;" title="产品标题六" class="proImg">
+                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
             </li>
             <li>
               <div>
-                <a href="javascript:;" title="产品标题六">
-                  <img src="./images/product/product1.png" alt="产品标题六">
+                <a href="javascript:;" title="产品标题六" class="proImg">
+                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
             </li>
             <li>
               <div>
-                <a href="javascript:;" title="产品标题六">
-                  <img src="./images/product/product1.png" alt="产品标题六">
+                <a href="javascript:;" title="产品标题六" class="proImg">
+                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
             </li>
             <li>
               <div>
-                <a href="javascript:;" title="产品标题六">
-                  <img src="./images/product/product1.png" alt="产品标题六">
+                <a href="javascript:;" title="产品标题六" class="proImg">
+                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
             </li>
           </ul>
+          <!--菜单内容结束-->
+
           <!--分页样式-->
-          <div class="pagination-wrapper">
-            <div class="pagination">  <li><a>共1页&nbsp;6条</a></li> </div>
+          <div aria-label="Page navigation" class="pageWrapper">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
           </div>
         </div>
-        <!--产品列表结束-->
       </div>
+
       <div class="clear"></div>
     </div>
   </div>
@@ -100,103 +128,420 @@
 
 <script>
 export default {
+  data () {
+    return {
+      menuList: [{
+        content: '热门',
+        second: [
+          '热门食材',
+          '家常菜',
+          '下饭菜',
+          '快手菜',
+          '减肥食谱'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '蔬菜',
+        second: [
+          '时令蔬菜',
+          '瓜类',
+          '绿叶蔬菜',
+          '菌类',
+          '根茎蔬菜',
+          '豆科'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '菜式菜系',
+        second: [
+          '菜式',
+          '中国菜',
+          '外国菜'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '主食',
+        second: [
+          '面食',
+          '饼',
+          '西式主食',
+          '粥',
+          '米饭'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '肉类大全',
+        second: [
+          '猪肉',
+          '鸡肉',
+          '牛肉',
+          '羊肉',
+          '其他'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '热门',
+        second: [
+          '热门食材',
+          '家常菜',
+          '下饭菜',
+          '快手菜',
+          '减肥食谱'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '蔬菜',
+        second: [
+          '时令蔬菜',
+          '瓜类',
+          '绿叶蔬菜',
+          '菌类',
+          '根茎蔬菜',
+          '豆科'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '菜式菜系',
+        second: [
+          '菜式',
+          '中国菜',
+          '外国菜'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '主食',
+        second: [
+          '面食',
+          '饼',
+          '西式主食',
+          '粥',
+          '米饭'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '肉类大全',
+        second: [
+          '猪肉',
+          '鸡肉',
+          '牛肉',
+          '羊肉',
+          '其他'
+        ],
+        isShow: false
+      },
+      {
+        content: '热门',
+        second: [
+          '热门食材',
+          '家常菜',
+          '下饭菜',
+          '快手菜',
+          '减肥食谱'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '蔬菜',
+        second: [
+          '时令蔬菜',
+          '瓜类',
+          '绿叶蔬菜',
+          '菌类',
+          '根茎蔬菜',
+          '豆科'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '菜式菜系',
+        second: [
+          '菜式',
+          '中国菜',
+          '外国菜'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '主食',
+        second: [
+          '面食',
+          '饼',
+          '西式主食',
+          '粥',
+          '米饭'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      },
+      {
+        content: '肉类大全',
+        second: [
+          '猪肉',
+          '鸡肉',
+          '牛肉',
+          '羊肉',
+          '其他'
+        ],
+        isShow: false,
+        style: 'icon-right'
+      }]
+    }
+  },
+  methods: {
+    bindMenu (objIndex) {
+      const newArr = this.menuList
+      newArr.forEach(function (item, index) {
+        if (index === objIndex) {
+          newArr[index].isShow = !newArr[index].isShow
+          newArr[index].style = 'icon-down'
+        } else {
+          newArr[index].isShow = false
+          newArr[index].style = 'icon-right'
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style>
-  .product {
-    width: 1004px;
+  a:focus {
+    text-decoration: none;
+  }
+
+  productMenu .Img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .productMenu {
+    width: 1000px;
     position: relative;
     margin: 30px auto 0px;
   }
-  .product01 {
+
+  .proLeft {
     float: left;
-    width: 200px;
+    width: 250px;
     padding-bottom: 20px;
     border: 1px solid #ebebeb;
     background: #fff;
     margin-bottom: 30px;
   }
-  .product07 {
-    padding-top: 30px;
-    height: 86px;
-    font-size: 30px;
+
+  .proLeftTitle {
+    padding-top: 25px;
+    height: 82px;
+    font-size: 26px;
     line-height: 1;
     color: #262626;
     text-align: center;
     margin: 0 20px 0 25px;
-    width: 155px;
+    width: 200px;
     border-bottom: 1px solid #dbdbdb;
   }
-  .product07 b {
-    font-weight: normal;
-  }
+
   .sidenav {
     padding-top: 17px;
     padding-bottom: 10px;
-    width: 155px;
+    width: 200px;
     margin: 0px 20px 0px 25px;
   }
-  .sidenav ul li {
-    min-height: 48px;
+
+  .sidenav > ul > li {
+    min-height: 42px;
     display: block;
-    line-height: 48px;
-    font-size: 16px;
+    line-height: 42px;
+    font-size: 17px;
     padding-left: 33px;
-    width: 122px;
+    width: 200px;
+    overflow: hidden;
     border-bottom: 1px dashed rgb(213, 213, 213);
-    background: url(./images/proone.gif) 20px center no-repeat;
+    background: url("./images/proone.gif") 20px 12px no-repeat;
   }
-  .product02 {
+
+  .sidenava > p {
+    display: block;
+    overflow: hidden;
+    color: #262626;
+    width: 155px;
+    height: 100%;
+    cursor: pointer;
+    transition: all .3s ease-in-out 0s;
+  }
+
+  .sidenava > p:hover {
+    color: #795a43;
+  }
+
+  .sidenava i {
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*display: inline-block;*/
     float: right;
-    width: 791px;
+    /*margin-top: 11px;*/
+    /*border: 1px solid #e4b9b9;*/
+  }
+
+  .secMenu {
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+
+  .secMenu > li {
+    height: 35px;
+    font-size: 14px;
+    list-style: disc;
+    cursor: pointer;
+    font-size: 14px;
+    width: 120px;
+  }
+
+  .secMenu > li:hover {
+    color: #F08E02;
+    transition: all 0.2s linear;
+  }
+
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
+  .proRight {
+    float: right;
+    width: 730px;
     min-height: 633px;
     border: 1px solid #ebebeb;
     background: #fff;
     padding: 0 38px 15px 32px;
   }
-  .content_com_title {
+
+  .proRightTitle {
     border-bottom: 1px solid #dbdbdb;
     position: relative;
-    margin-bottom: 15px;
     width: 100%;
     padding-top: 30px;
     height: 86px;
   }
-  .content_com_title h2 {
+
+  .proRightTitle > h2 {
     float: left;
     font-size: 30px;
     line-height: 1;
     color: #262626;
   }
+
   .bread {
     float: right;
     line-height: 12px;
-    font-size: 12px;
+    font-size: 16px;
     color: #575757;
     padding-top: 15px;
   }
-  .bread a {
+
+  .bread > a {
     color: #575757;
   }
-  .content {
+
+  .recContent {
     min-height: 672px;
     font-size: 14px;
   }
-  .product3, .product8 li {
+
+  .thMenu {
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    vertical-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .thMenu > li {
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 20px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px dashed #795a43;
+  }
+
+  .menuContent {
     width: 100%;
     height: auto;
+    padding: 0px 10px;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+    flex-wrap: wrap;
   }
-  .product02 .product3 li {
-    height: 190px;
-  }
-  .product3 li {
+
+  .menuContent > li {
+    height: 200px;
     width: 30%;
-    padding: 1% 1.5% 0.5%;
     float: left;
     overflow: hidden;
     position: relative;
+    text-align: center;
+  }
+
+  .menuContent > li > div {
+    margin: 3px auto;
+    position: relative;
+    margin: 0 auto;
+    width: 96.6%;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .proImg {
+    width: 208px;
+    height: 156px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .pg-color {
+    width: 88%;
+    margin: 0 auto;
+    text-align: center;
+    font: 14px/40px "microsoft yahei";
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .pageWrapper {
+    width: 100%;
     text-align: center;
   }
 </style>

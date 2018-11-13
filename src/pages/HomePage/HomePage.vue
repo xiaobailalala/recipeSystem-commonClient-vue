@@ -242,14 +242,14 @@
                 </p>
               </a>
               <p class="authorDate">
-                <i class="iconfont icon-author"></i>
+                <i class="iconfont icon-xiezi"></i>
                 <a href="">少油少盐</a>
                 发表日期&nbsp;&nbsp;2017-09-10
                 <span>
-      <i class="iconfont icon-eyes"></i>
-      7
-      <i class="iconfont icon-share"></i>
-      </span>
+                  <i class="iconfont icon-eyes"></i>
+                  7
+                  <i class="iconfont icon-share"></i>
+                </span>
               </p>
             </li>
             <li>
@@ -265,14 +265,14 @@
                 </p>
               </a>
               <p class="authorDate">
-                <i class="iconfont icon-author"></i>
+                <i class="iconfont icon-xiezi"></i>
                 <a href="">少油少盐</a>
                 发表日期&nbsp;&nbsp;2017-09-10
-                <span>
-      <i class="iconfont icon-eyes"></i>
-      7
-      <i class="iconfont icon-share"></i>
-      </span>
+                <span class="icon">
+                  <i class="iconfont icon-eyes"></i>
+                  7
+                  <i class="iconfont icon-share"></i>
+                </span>
               </p>
             </li>
             <li>
@@ -288,7 +288,7 @@
                 </p>
               </a>
               <p class="authorDate">
-                <i class="iconfont icon-author"></i>
+                <i class="iconfont icon-xiezi"></i>
                 <a href="">少油少盐</a>
                 发表日期&nbsp;&nbsp;2017-09-10
                 <span>
@@ -638,7 +638,7 @@ export default {
     margin: 0px 30px;
   }
   #left>ul>li {
-    margin: 20px 0px;
+    margin: 40px 0px;
   }
   #left>ul>li>a>p:first-child {
     font-size: 19px;
@@ -667,8 +667,9 @@ export default {
     -webkit-box-orient: vertical;
     text-indent: 2em;
     line-height: 1.5;
-    font-size: 14px;
-    color: #777;
+    font-size: 13px;
+    color: #555;
+    font-family: Serif;
   }
   .authorDate {
     margin-top: 10px;
@@ -693,7 +694,7 @@ export default {
   .authorDate>span>i {
     margin-left: 20px;
     font-size: 20px;
-    color: gray;
+    color: #242424;
   }
   /*大家都在看*/
   #right {
