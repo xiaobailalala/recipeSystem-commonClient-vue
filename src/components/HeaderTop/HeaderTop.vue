@@ -4,13 +4,12 @@
     <div id="headerLogo">
       <!--顶部logo-->
       <a href="javascript:;" data-toggle="tooltip" data-placement="right" title="膳房膳食">
-        <img src="./images/logo.png" alt="logo">
+        <img src="static/images/headerTop/logo.png" alt="logo">
       </a>
       <!--顶部登录注册-->
       <div id="logOrReg">
         <span><a href="javascript:;" @click="goto('/login')">登录</a></span>
         <span><a href="javascript:;" @click="goto('/register')">注册</a></span>
-        <span><a href="">下载客户端</a></span>
       </div>
     </div>
     <div class="clear"></div>

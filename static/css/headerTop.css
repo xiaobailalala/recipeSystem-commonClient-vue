@@ -16,13 +16,13 @@
   #logOrReg {
     float: right;
     line-height: 94px;
-    width: 200px;
+    width: 120px;
   }
-  #logOrReg>span:last-child,#logOrReg>span:nth-child(2) {
+  #logOrReg>span:last-child {
     border-left: 1px solid black;
   }
   #logOrReg>span>a {
-    padding-left: 6px;
+    padding-left: 10px;
     padding-right: 7px;
     transition: color .3s linear;
     font-size: 16px;
@@ -36,7 +36,7 @@
   #headerMenu {
     width: 100%;
     height: 60px;
-    background: url("../images/menu.jpg") no-repeat top center;
+    background: url("../images/headerTop/menu.jpg") no-repeat top center;
     /*opacity: 0.9;*/
   }
   #menu {

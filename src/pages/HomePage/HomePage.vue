@@ -4,19 +4,19 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide broadSize">
-          <img src="./images/broadcast/broadcast1.jpg" class="Img">
+          <img src="static/images/broadcast/broadcast1.jpg" class="Img">
         </div>
         <div class="swiper-slide">
-          <img src="./images/broadcast/broadcast2.jpg" class="Img">
+          <img src="static/images/broadcast/broadcast2.jpg" class="Img">
         </div>
         <div class="swiper-slide">
-          <img src="./images/broadcast/broadcast3.png" class="Img">
+          <img src="static/images/broadcast/broadcast3.png" class="Img">
         </div>
         <div class="swiper-slide">
-          <img src="./images/broadcast/broadcast4.jpg" class="Img">
+          <img src="static/images/broadcast/broadcast4.jpg" class="Img">
         </div>
         <div class="swiper-slide">
-          <img src="./images/broadcast/broadcast5.png" class="Img">
+          <img src="static/images/broadcast/broadcast5.png" class="Img">
         </div>
       </div>
       <!-- Add Pagination -->
@@ -38,56 +38,56 @@
         <ul class="recommend">
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend1.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend1.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend1.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend1.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend1.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend1.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend1.png" alt="" class="Img">
+              <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend2.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend2.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">芹菜炒肉</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend2.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend2.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">芹菜炒肉</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend2.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend2.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">芹菜炒肉</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
           </li>
           <li>
             <a href="javascript:;" class="recomSize">
-              <img src="./images/recommend/recommend2.png" alt="" class="Img">
+              <img src="static/images/recommend/recommend2.png" alt="" class="Img">
             </a>
             <a href="javascript:;" class="colorChange">芹菜炒肉</a>
             <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
@@ -97,6 +97,7 @@
     </div>
     <!--居中内容有背景-->
     <div class="bg">
+      <img src="static/images/homepage/homePageBg.png" alt="">
       <div class="content">
         <!--商城-->
         <div id="shop">
@@ -113,7 +114,7 @@
           <ul class="recommend">
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="./images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -121,7 +122,7 @@
             </li>
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="./images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -129,7 +130,7 @@
             </li>
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="./images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -137,7 +138,7 @@
             </li>
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="./images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -160,7 +161,7 @@
             <li>
               <a href="javascript">
                 <div class="activeSize">
-                  <img src="./images/activeImg/active1.png" alt="" class="Img">
+                  <img src="../../../static/images/activeImg/active1.png" alt="" class="Img">
                 </div>
                 <div class="activeContent">
                   <p>2元青菜餐厅卖18元</p>
@@ -172,7 +173,7 @@
             <li>
               <a href="javascript">
                 <div class="activeSize">
-                  <img src="./images/activeImg/active2.png" alt="" class="Img">
+                  <img src="../../../static/images/activeImg/active2.png" alt="" class="Img">
                 </div>
                 <div class="activeContent">
                   <p>33元青菜餐厅卖18元</p>
@@ -184,7 +185,7 @@
             <li>
               <a href="javascript">
                 <div class="activeSize">
-                  <img src="./images/activeImg/active3.png" alt="" class="Img">
+                  <img src="../../../static/images/activeImg/active3.png" alt="" class="Img">
                 </div>
                 <div class="activeContent">
                   <p>2元青菜餐厅卖18元</p>
@@ -196,7 +197,7 @@
             <li>
               <a href="javascript">
                 <div class="activeSize">
-                  <img src="./images/activeImg/active4.png" alt="" class="Img">
+                  <img src="../../../static/images/activeImg/active4.png" alt="" class="Img">
                 </div>
                 <div class="activeContent">
                   <p>55元青菜餐厅卖18元55元青菜餐厅卖18元</p>
@@ -218,6 +219,7 @@
         <div id="left">
           <!--标题栏-->
           <p>
+            <img src="static/images/news/newbg.gif" alt="">
             <span>随笔</span>
             <span>JOTTINGS</span>
           </p>
@@ -233,7 +235,7 @@
               <a href="https://www.baidu.com">
                 <p class="colorChange">网红小姐姐和健身达人推崇的0脂肪来了！</p>
                 <div class="newsImg">
-                  <img src="./images/news/news1.png" alt="newsImg" class="Img">
+                  <img src="../../../static/images/news/news1.png" alt="newsImg" class="Img">
                 </div>
                 <p class="newsContent">
                   随着人们健康意识的增强，高热量高脂肪的食物正在慢慢离我们远去，0脂肪时代已正式开启！！！
@@ -256,7 +258,7 @@
               <a href="https://www.baidu.com">
                 <p class="colorChange">网红小姐姐和健身达人推崇的0脂肪来了！</p>
                 <div class="newsImg">
-                  <img src="./images/news/news2.png" alt="newsImg" class="Img">
+                  <img src="../../../static/images/news/news2.png" alt="newsImg" class="Img">
                 </div>
                 <p class="newsContent">
                   随着人们健康意识的增强，高热量高脂肪的食物正在慢慢离我们远去，0脂肪时代已正式开启！！！
@@ -279,7 +281,7 @@
               <a href="https://www.baidu.com">
                 <p class="colorChange">网红小姐姐和健身达人推崇的0脂肪来了！</p>
                 <div class="newsImg">
-                  <img src="./images/news/news3.png" alt="newsImg" class="Img">
+                  <img src="../../../static/images/news/news3.png" alt="newsImg" class="Img">
                 </div>
                 <p class="newsContent">
                   随着人们健康意识的增强，高热量高脂肪的食物正在慢慢离我们远去，0脂肪时代已正式开启！！！
@@ -305,7 +307,7 @@
           <ul>
             <li>
               <a href="javascript" class="lookSize">
-                <img src="./images/activeImg/active2.png" alt="" class="Img">
+                <img src="../../../static/images/activeImg/active2.png" alt="" class="Img">
               </a>
               <div class="lookContent">
                 <a href="javascript">我是标题我也不知道我要叫什么</a>
@@ -316,7 +318,7 @@
             </li>
             <li>
               <a href="javascript" class="lookSize">
-                <img src="./images/activeImg/active3.png" alt="" class="Img">
+                <img src="../../../static/images/activeImg/active3.png" alt="" class="Img">
               </a>
               <div class="lookContent">
                 <a href="javascript">我是标题我也不知道我要叫什么</a>
@@ -327,7 +329,7 @@
             </li>
             <li>
               <a href="javascript" class="lookSize">
-                <img src="./images/activeImg/active2.png" alt="" class="Img">
+                <img src="../../../static/images/activeImg/active2.png" alt="" class="Img">
               </a>
               <div class="lookContent">
                 <a href="javascript">我是标题我也不知道我要叫什么</a>
@@ -338,7 +340,7 @@
             </li>
             <li>
               <a href="javascript" class="lookSize">
-                <img src="./images/activeImg/active3.png" alt="" class="Img">
+                <img src="../../../static/images/activeImg/active3.png" alt="" class="Img">
               </a>
               <div class="lookContent">
                 <a href="javascript">我是标题我也不知道我要叫什么</a>
@@ -375,7 +377,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   /*轮播*/
   .swiper-container,swiper-wrapper {
     width: 100%;
@@ -404,10 +406,16 @@ export default {
   }
   .bg {
     width: 100%;
-    /*height: 1000px;*/
     padding-bottom: 50px;
     margin-top: 50px;
-    background-image: url("./images/bg.png");
+    position: relative;
+    /*border: 1px solid red;*/
+  }
+  .bg>img {
+    width: 100%;
+    height: 84%;
+    position: absolute;
+    z-index: -1;
   }
 /*推荐食谱*/
   #foodRecommend {
@@ -543,9 +551,9 @@ export default {
     color: white;
   }
   #active>ul {
-    width: 100%;
-    margin-top: 10px;
-  }
+     width: 100%;
+     margin-top: 10px;
+   }
   #active>ul>li {
     margin-top: 30px;
     width: 490px;
@@ -553,6 +561,8 @@ export default {
     background-color: white;
     display: inline-block;
     padding: 12px;
+    border: 1px solid #dfdfdf;
+    /*border-radius: 5px;*/
   }
   #active>ul>li:nth-of-type(even) {
     float: right;
@@ -584,7 +594,7 @@ export default {
     background-color: #7F5A43;
   }
   .activeContent>p:last-child {
-    color: #c2a684;
+    color: #cb8926;
     font-size: 14px;
     margin-top: 8px;
     overflow: hidden;
@@ -604,7 +614,7 @@ export default {
   #left {
     width: 650px;
     /*height: 870px;*/
-    border: 1px solid #ebebeb;
+    border: 1px solid #dfdfdf;
     display: inline-block;
     transition: all 0.2s linear;
     background-color: white;
@@ -613,7 +623,6 @@ export default {
   #left>p {
     height: 100px;
     border-bottom: 1px solid gray;
-    background: url("./images/news/newbg.gif") no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -622,6 +631,12 @@ export default {
     font-size: 20px;
     margin: 0px 30px;
     padding-bottom: 10px;
+    position: relative;
+  }
+  #left>p>img {
+    position: absolute;
+    left: 1px;
+    top: -1px;
   }
   #left>p>span:first-child {
     font-size: 24px;
@@ -702,7 +717,7 @@ export default {
     /*height: 650px;*/
     float: right;
     background-color: white;
-    border: 1px solid #ebebeb;
+    border: 1px solid #dfdfdf;
     padding: 10px 10px 30px 10px;
   }
   #right>h3 {

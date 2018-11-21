@@ -7,6 +7,7 @@
         <div class="sidenav">
           <ul>
             <li v-for="(item, index) in menuList" :key="index">
+              <img src="static/images/recipesImg/proone.gif" alt="">
               <a href="javascript:;" @click="bindMenu(index)" class="sidenava">
                 <p>
                   {{item.content }}
@@ -21,7 +22,7 @@
             </li>
           </ul>
         </div>
-        <!--一二级食谱分类开始-->
+        <!--一二级食谱分类结束-->
       </div>
 
       <div class="proRight">
@@ -50,7 +51,7 @@
             <li>
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
+                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
@@ -58,7 +59,7 @@
             <li>
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
+                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
@@ -66,7 +67,7 @@
             <li>
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
+                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
@@ -74,7 +75,7 @@
             <li>
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
+                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
@@ -82,7 +83,7 @@
             <li>
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
+                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
@@ -90,7 +91,7 @@
             <li>
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="./images/product/product1.png" alt="产品标题六" class="Img">
+                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
                 </a>
               </div>
               <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
@@ -325,31 +326,27 @@ export default {
 }
 </script>
 
-<style>
-  a:focus {
-    text-decoration: none;
-  }
-
-  productMenu .Img {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    object-fit: cover;
-  }
+<style scoped>
 
   .productMenu {
     width: 1000px;
     position: relative;
-    margin: 30px auto 0px;
+    margin: 50px auto;
+    min-height: 300px;
   }
-
+  .productMenu:before,
+  .productMenu:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
   .proLeft {
     float: left;
     width: 250px;
     padding-bottom: 20px;
     border: 1px solid #ebebeb;
-    background: #fff;
-    margin-bottom: 30px;
+    background-color: #fff;
+    min-height: 795px;
   }
 
   .proLeftTitle {
@@ -379,10 +376,15 @@ export default {
     padding-left: 33px;
     width: 200px;
     overflow: hidden;
+    position: relative;
     border-bottom: 1px dashed rgb(213, 213, 213);
-    background: url("./images/proone.gif") 20px 12px no-repeat;
+    /*background: url("../../../static/images/recipesImg/proone.gif") 20px 12px no-repeat;*/
   }
-
+  .sidenav>ul>li>img {
+    position: absolute;
+    left: 10px;
+    top: 13px;
+  }
   .sidenava > p {
     display: block;
     overflow: hidden;
@@ -444,10 +446,11 @@ export default {
   }
 
   .proRightTitle {
+    padding-top: 25px;
     border-bottom: 1px solid #dbdbdb;
     position: relative;
+    margin-bottom: 20px;
     width: 100%;
-    padding-top: 30px;
     height: 86px;
   }
 

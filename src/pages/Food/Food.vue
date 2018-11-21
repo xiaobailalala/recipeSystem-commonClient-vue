@@ -7,12 +7,17 @@
 
       <!--搜索框开始-->
       <div class="row">
+        <!--当前位置-->
+        <div class="foodPosition">
+          <div class="foodBread">当前位置： <a href="/" class="crumb">首页</a> &gt; 食谱分类 &gt; 热门</div>
+        </div>
+
         <!--换一批开始-->
         <button type="button" class="btn btn-primary change" >换一批</button>
         <!--换一批结束-->
         <div class="col-lg-6">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" placeholder="搜索食材">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -25,56 +30,56 @@
       <ul class="searchContent">
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend1.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend1.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend1.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend1.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend2.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">芹菜炒肉</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend2.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">芹菜炒肉</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend2.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">芹菜炒肉</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
         </li>
         <li>
           <a href="javascript:;" class="searchSize">
-            <img src="../HomePage/images/recommend/recommend2.png" alt="" class="Img">
+            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
           </a>
           <a href="javascript:;" class="colorChange">芹菜炒肉</a>
           <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
@@ -138,7 +143,7 @@ export default {
       configTag: {
         radius: 140,
         maxFont: 26,
-        color: null,// '#808080'
+        color: '#808080', // '#808080'
         rotateAngleXbase: 350,
         rotateAngleYbase: 350,
         hover: false
@@ -161,6 +166,7 @@ export default {
     min-height: 400px;
     border-bottom: 1px dashed black;
     overflow: hidden;
+    cursor: pointer;
   }
   #rotate {
     /*border: 1px solid silver;*/
@@ -178,13 +184,31 @@ export default {
   .row {
     width: 300px;
     float: right;
-    min-height: 60px;
-    /*border: 1px solid #e4b9b9;*/
-    margin: 120px 80px 0px 0px;
+    min-height: 180px;
+    margin: 15px 80px 0px 0px;
+  }
+
+  .foodPosition {
+    position: relative;
+    width: 100%;
+    padding-top: 30px;
+    margin-bottom: 60px;
+    height: 86px;
+    text-align: center;
+  }
+
+  .foodBread {
+    line-height: 12px;
+    font-size: 16px;
+    color: #575757;
+    padding-top: 15px;
+  }
+  .foodBread > a {
+    color: #575757;
   }
   .change {
     width: 150px;
-    margin: 10px 0px 80px 70px;
+    margin: 0px 0px 80px 70px;
   }
   .col-lg-6 {
     width: 100%;
