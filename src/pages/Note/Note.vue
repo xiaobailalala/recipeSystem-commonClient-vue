@@ -1,6 +1,10 @@
 <template>
   <div>
     <div class="noteContent">
+      <section>
+        <button class="btn btn-warning btn-block">加入写食派</button>
+        <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 写食派</div>
+      </section>
       <ul class="left">
         <section class="note" v-for="(note,index) in notes" v-if="index<notes.length/2" :key="index">
           <p>
@@ -247,7 +251,7 @@ export default {
     },
     scrollChange: function () {
       this.scollY = this.getScrollTop() + this.getWindowHeight() - this.getScrollHeight()
-      console.log(this.scollY, this.getScrollTop(), this.getWindowHeight(), this.getScrollHeight())
+      // console.log(this.scollY, this.getScrollTop(), this.getWindowHeight(), this.getScrollHeight())
       // 把下拉刷新置为false，防止多次请求
       if (this.notes.length >= 100) {
         this.pullRefreshss = false
@@ -431,7 +435,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .bottomP {
     font-size: 17px;
     text-align: center;
@@ -448,6 +452,24 @@ export default {
     content: "";
     display: table;
     clear: both;
+  }
+  .noteContent>section {
+    width: 100%;
+  }
+  .noteContent>section>button {
+    width: 20%;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .bread {
+    float: right;
+    line-height: 12px;
+    font-size: 16px;
+    color: #575757;
+  }
+
+  .bread > a {
+    color: #575757;
   }
   .noteContent>ul{
     width: 490px;

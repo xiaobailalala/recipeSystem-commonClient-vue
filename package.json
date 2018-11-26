@@ -16,6 +16,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "pubsub-js": "^1.7.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^7.15.1",
     "swiper": "^4.4.1",
     "v-tag-cloud": "^1.0.3",
     "vue": "^2.5.2",

@@ -131,182 +131,184 @@
 export default {
   data () {
     return {
-      menuList: [{
-        content: '热门',
-        second: [
-          '热门食材',
-          '家常菜',
-          '下饭菜',
-          '快手菜',
-          '减肥食谱'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '蔬菜',
-        second: [
-          '时令蔬菜',
-          '瓜类',
-          '绿叶蔬菜',
-          '菌类',
-          '根茎蔬菜',
-          '豆科'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '菜式菜系',
-        second: [
-          '菜式',
-          '中国菜',
-          '外国菜'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '主食',
-        second: [
-          '面食',
-          '饼',
-          '西式主食',
-          '粥',
-          '米饭'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '肉类大全',
-        second: [
-          '猪肉',
-          '鸡肉',
-          '牛肉',
-          '羊肉',
-          '其他'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '热门',
-        second: [
-          '热门食材',
-          '家常菜',
-          '下饭菜',
-          '快手菜',
-          '减肥食谱'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '蔬菜',
-        second: [
-          '时令蔬菜',
-          '瓜类',
-          '绿叶蔬菜',
-          '菌类',
-          '根茎蔬菜',
-          '豆科'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '菜式菜系',
-        second: [
-          '菜式',
-          '中国菜',
-          '外国菜'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '主食',
-        second: [
-          '面食',
-          '饼',
-          '西式主食',
-          '粥',
-          '米饭'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '肉类大全',
-        second: [
-          '猪肉',
-          '鸡肉',
-          '牛肉',
-          '羊肉',
-          '其他'
-        ],
-        isShow: false
-      },
-      {
-        content: '热门',
-        second: [
-          '热门食材',
-          '家常菜',
-          '下饭菜',
-          '快手菜',
-          '减肥食谱'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '蔬菜',
-        second: [
-          '时令蔬菜',
-          '瓜类',
-          '绿叶蔬菜',
-          '菌类',
-          '根茎蔬菜',
-          '豆科'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '菜式菜系',
-        second: [
-          '菜式',
-          '中国菜',
-          '外国菜'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '主食',
-        second: [
-          '面食',
-          '饼',
-          '西式主食',
-          '粥',
-          '米饭'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      },
-      {
-        content: '肉类大全',
-        second: [
-          '猪肉',
-          '鸡肉',
-          '牛肉',
-          '羊肉',
-          '其他'
-        ],
-        isShow: false,
-        style: 'icon-right'
-      }]
+      menuList: [
+        {
+          content: '热门',
+          second: [
+            '热门食材',
+            '家常菜',
+            '下饭菜',
+            '快手菜',
+            '减肥食谱'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '蔬菜',
+          second: [
+            '时令蔬菜',
+            '瓜类',
+            '绿叶蔬菜',
+            '菌类',
+            '根茎蔬菜',
+            '豆科'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '菜式菜系',
+          second: [
+            '菜式',
+            '中国菜',
+            '外国菜'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '主食',
+          second: [
+            '面食',
+            '饼',
+            '西式主食',
+            '粥',
+            '米饭'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '肉类大全',
+          second: [
+            '猪肉',
+            '鸡肉',
+            '牛肉',
+            '羊肉',
+            '其他'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '热门',
+          second: [
+            '热门食材',
+            '家常菜',
+            '下饭菜',
+            '快手菜',
+            '减肥食谱'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '蔬菜',
+          second: [
+            '时令蔬菜',
+            '瓜类',
+            '绿叶蔬菜',
+            '菌类',
+            '根茎蔬菜',
+            '豆科'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '菜式菜系',
+          second: [
+            '菜式',
+            '中国菜',
+            '外国菜'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '主食',
+          second: [
+            '面食',
+            '饼',
+            '西式主食',
+            '粥',
+            '米饭'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '肉类大全',
+          second: [
+            '猪肉',
+            '鸡肉',
+            '牛肉',
+            '羊肉',
+            '其他'
+          ],
+          isShow: false
+        },
+        {
+          content: '热门',
+          second: [
+            '热门食材',
+            '家常菜',
+            '下饭菜',
+            '快手菜',
+            '减肥食谱'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '蔬菜',
+          second: [
+            '时令蔬菜',
+            '瓜类',
+            '绿叶蔬菜',
+            '菌类',
+            '根茎蔬菜',
+            '豆科'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '菜式菜系',
+          second: [
+            '菜式',
+            '中国菜',
+            '外国菜'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '主食',
+          second: [
+            '面食',
+            '饼',
+            '西式主食',
+            '粥',
+            '米饭'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        },
+        {
+          content: '肉类大全',
+          second: [
+            '猪肉',
+            '鸡肉',
+            '牛肉',
+            '羊肉',
+            '其他'
+          ],
+          isShow: false,
+          style: 'icon-right'
+        }
+      ]
     }
   },
   methods: {

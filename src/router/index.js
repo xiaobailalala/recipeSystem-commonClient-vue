@@ -29,7 +29,10 @@ export default new Router({
     },
     {
       path: '/notecreated',
-      component: NoteCreated
+      component: NoteCreated,
+      meta: {
+        showFooter: true
+      }
     },
     {
       path: '/food',
@@ -76,7 +79,10 @@ export default new Router({
     },
     {
       path: '/foodwrite',
-      component: FoodWrite
+      component: FoodWrite,
+      meta: {
+        showFooter: true
+      }
     }
   ]
 })

@@ -2,8 +2,8 @@
   <div>
     <headerTop v-show="$route.meta.showFooter"/>
     <router-view />
-    <pageFooter />
     <toTop />
+    <pageFooter />
   </div>
 </template>
 
@@ -14,8 +14,8 @@ import toTop from './components/ToTop/ToTop'
 export default {
   components: {
     headerTop,
-    pageFooter,
-    toTop
+    toTop,
+    pageFooter
   }
 }
 </script>

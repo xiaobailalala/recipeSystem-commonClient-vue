@@ -295,37 +295,37 @@ export default {
         {
           content: [
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg6.png',
               title: '厨房配件1',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg6.png',
               title: '厨房配件2',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg6.png',
               title: '厨房配件3',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg6.png',
               title: '厨房配件4',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg6.png',
               title: '厨房配件5',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg6.png',
               title: '厨房配件6',
               price: '99.00',
               sale: '1000'
@@ -335,37 +335,37 @@ export default {
         {
           content: [
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg7.png',
               title: '厨房电器1',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg7.png',
               title: '厨房电器2',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg7.png',
               title: '厨房电器3',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg7.png',
               title: '厨房电器4',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg7.png',
               title: '厨房电器5',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg7.png',
               title: '厨房电器6',
               price: '99.00',
               sale: '1000'
@@ -375,37 +375,37 @@ export default {
         {
           content: [
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg8.png',
               title: '餐具1',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg8.png',
               title: '餐具2',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg8.png',
               title: '餐具3',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg8.png',
               title: '餐具4',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg8.png',
               title: '餐具5',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg8.png',
               title: '餐具6',
               price: '99.00',
               sale: '1000'
@@ -415,44 +415,44 @@ export default {
         {
           content: [
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg9.png',
               title: '清洁用品1',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg9.png',
               title: '清洁用品2',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg9.png',
               title: '清洁用品3',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg9.png',
               title: '清洁用品4',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg9.png',
               title: '清洁用品5',
               price: '99.00',
               sale: '1000'
             },
             {
-              img: 'static/images/shopimg/shopimg1.png',
+              img: 'static/images/shopimg/shopimg9.png',
               title: '清洁用品6',
               price: '99.00',
               sale: '1000'
             }
           ]
-        },
-        ],
+        }
+      ],
       empty: ''
     }
   },

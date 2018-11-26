@@ -27,7 +27,7 @@ export default {
       })
     },
     handleScroll () {
-      console.log(document.documentElement.scrollTop, document.body.scrollTop)
+      // console.log(document.documentElement.scrollTop, document.body.scrollTop)
       if (document.documentElement.scrollTop + document.body.scrollTop > 1500) {
         this.backTopShow = true
       } else {
