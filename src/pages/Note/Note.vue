@@ -525,10 +525,11 @@ export default {
     width: 100%;
   }
   .note>div>h2 {
-    font-size: 15px;
+    font-size: 16px;
     white-space: nowrap;
     display: inline-block;
-    width: 200px;
+    width: 220px;
+    /*border: 1px solid red;*/
     text-overflow: ellipsis;
     overflow: hidden;
     position: relative;

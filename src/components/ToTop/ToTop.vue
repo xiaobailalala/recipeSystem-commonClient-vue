@@ -44,7 +44,7 @@ export default {
     bottom: 166px;
     width: 50px;
     height: 50px;
-    border: 1px solid #666666;
+    border: 1px solid #ccc;
     text-align: center;
     position: fixed;
     border-radius: 50%;
@@ -54,6 +54,6 @@ export default {
   .toTop>i {
     font-size: 38px;
     line-height: 50px;
-    color: #666666;
+    color: #888;
   }
 </style>

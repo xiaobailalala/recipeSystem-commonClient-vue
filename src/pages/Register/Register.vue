@@ -8,8 +8,8 @@
         <i class="iconfont icon-return" @click="goto('/homepage')"></i>
       </div>
     </header>
-    <section>
-      <img src="static/images/register/bg12.png" alt="logo">
+    <section class="login">
+      <img src="static/images/register/bg.png" alt="logo">
       <div class="logContent">
         <h2>新用户注册
           <span @click="goto('/login')">已有账号，直接登录&nbsp;></span>
@@ -27,7 +27,6 @@
           <div class="form-group">
             <input type="password" class="form-control" placeholder="确认密码">
           </div>
-          <a href="">忘记密码&nbsp;></a>
           <button class="btn btn-block">登录</button>
         </form>
       </div>
@@ -73,9 +72,11 @@ export default {
     top: 50%;
   }
   section {
-    width: 100%;
+    width: 920px;
     /*background-color: silver;*/
     min-height: 300px;
+    margin: 0 auto;
+    padding-top: 30px;
   }
   section:before,
   section:after {
@@ -84,21 +85,17 @@ export default {
     clear: both;
   }
   section>img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
+    width: 460px;
     overflow: hidden;
-    /*object-fit: cover;*/
-    filter: blur(1px);
+    object-fit: cover;
+    padding-top: 20px;
   }
   .logContent {
-    margin: 30px auto 0;
     /*opacity: 0.85;*/
     box-shadow: 0px 0px 10px white;
     width: 420px;
     background-color: white;
-    /*float: right;*/
+    float: right;
     /*margin: 20px;*/
   }
   .logContent>h2 {

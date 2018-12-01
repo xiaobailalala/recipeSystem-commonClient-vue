@@ -114,7 +114,7 @@
           <ul class="recommend">
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -122,7 +122,7 @@
             </li>
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -130,7 +130,7 @@
             </li>
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>
@@ -138,7 +138,7 @@
             </li>
             <li>
               <a href="javascript:;" class="recomSize">
-                <img src="../../../static/images/shopimg/shopimg1.png" alt="" class="Img">
+                <img src="static/images/shopimg/shopimg1.png" alt="" class="Img">
               </a>
               <a class="colorChange">九阳320ml小红绳保温杯316L...</a>
               <p class="price">￥99.00</p>

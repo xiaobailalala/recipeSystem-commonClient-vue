@@ -9,8 +9,8 @@
         </div>
       </header>
       <div class="login">
-        <img src="static/images/register/bg12.png" alt="logo">
-        <section>
+        <!--<img src="static/images/register/bg12.png" alt="logo">-->
+        <!--<section>-->
           <img src="static/images/loginImg/loginImg.png" alt="logo">
           <div class="logContent">
             <h2>登录
@@ -27,7 +27,7 @@
               <button class="btn btn-block">登录</button>
             </form>
           </div>
-        </section>
+        <!--</section>-->
       </div>
 
     </div>
@@ -71,7 +71,8 @@ export default {
     top: 50%;
   }
   .login {
-    width: 100%;
+    width: 920px;
+    margin: 30px auto 0px;
   }
   .login:before,
   .login:after {
@@ -81,26 +82,27 @@ export default {
   }
 
   .login>img {
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
-    position: absolute;
-    top: 0px;
-    z-index: -1;
+    /*position: absolute;*/
+    /*float: left;*/
+    /*top: 0px;*/
+    /*z-index: -1;*/
     overflow: hidden;
     /*object-fit: cover;*/
-    filter: blur(1px);
+    /*filter: blur(1px);*/
   }
-  section {
-    width: 900px;
-    margin: 30px auto;
-    min-height: 358px;
-    position: relative;
-    left: -30px;
-  }
-  section>img {
-    position: absolute;
-    bottom: 0px;
-  }
+  /*section {*/
+    /*width: 900px;*/
+    /*margin: 30px auto;*/
+    /*min-height: 358px;*/
+    /*position: relative;*/
+    /*left: -30px;*/
+  /*}*/
+  /*section>img {*/
+    /*position: absolute;*/
+    /*bottom: 0px;*/
+  /*}*/
   .logContent {
     width: 380px;
     height: 358px;
