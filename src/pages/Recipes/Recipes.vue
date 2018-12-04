@@ -48,7 +48,7 @@
 
           <!--菜单内容开始-->
           <ul class="menuContent">
-            <li>
+            <li @click="goto('/recipes/recipeDetail')">
               <div>
                 <a href="javascript:;" title="产品标题六" class="proImg">
                   <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
@@ -323,6 +323,9 @@ export default {
           newArr[index].style = 'icon-right'
         }
       })
+    },
+    goto (path) {
+      this.$router.replace(path)
     }
   }
 }

@@ -11,6 +11,7 @@ import Register from '../pages/Register/Register'
 import Selected from '../pages/Selected/Selected'
 import Shop from '../pages/Shop/Shop'
 import FoodWrite from '../pages/FoodWrite/FoodWrite'
+import RecipeDetail from '../pages/RecipeDetail/RecipeDetail'
 
 Vue.use(Router)
 
@@ -55,6 +56,13 @@ export default new Router({
     {
       path: '/recipes',
       component: Recipes,
+      meta: {
+        showFooter: true
+      }
+    },
+    {
+      path: '/recipes/recipeDetail',
+      component: RecipeDetail,
       meta: {
         showFooter: true
       }
