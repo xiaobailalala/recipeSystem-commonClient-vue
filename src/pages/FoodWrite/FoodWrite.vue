@@ -32,7 +32,7 @@
         </div>
         <div class="intro">
           <h2>食谱介绍</h2>
-          <textarea class="form-control" v-model="introduction" rows="5" placeholder="向大家介绍一下这道菜吧"></textarea>
+          <textarea class="form-control" v-model="introduction" rows="5" placeholder="向大家介绍一下这道菜吧（尽量吸引人哦）"></textarea>
         </div>
       </div>
 

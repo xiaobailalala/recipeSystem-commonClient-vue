@@ -6,7 +6,8 @@
         <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 写食派</div>
       </section>
       <ul class="left">
-        <section class="note" v-for="(note,index) in notes" v-if="index<notes.length/2" :key="index">
+        <section class="note" v-for="(note,index) in notes"
+                 v-if="index<notes.length/2" :key="index" @click="goto('/note/nodeDetail')">
           <p>
             <img :src="note.authImg" alt="">
             <span>作者</span>
@@ -25,7 +26,8 @@
         </section>
       </ul>
       <ul class="right">
-        <section class="note" v-for="(note,index) in notes" v-if="index>notes.length/2" :key="index">
+        <section class="note" v-for="(note,index) in notes"
+                 v-if="index>notes.length/2" :key="index" @click="goto('/note/nodeDetail')">
           <p>
             <img :src="note.authImg" alt="">
             <span>作者</span>
@@ -426,12 +428,15 @@ export default {
         // 其他时候把下拉刷新置为true
         this.pullRefreshss = true
       }
+    },
+    goto (path) {
+      let {href} = this.$router.resolve({path})
+      window.open(href,'_blank')
     }
   },
   created: function () {
     this.pullRefresh()
   }
-
 }
 </script>
 
@@ -466,6 +471,8 @@ export default {
     line-height: 12px;
     font-size: 16px;
     color: #575757;
+    height: 34px;
+    line-height: 34px;
   }
 
   .bread > a {

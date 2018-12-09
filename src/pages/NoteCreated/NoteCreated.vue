@@ -368,88 +368,34 @@
         showRecipe: false,
         recipes: [
           {
-            name: 'c语言'
+            name: '鱼香肉丝'
           },
           {
-            name: '面向对象程序设计'
+            name: '爆炒金针菇'
           },
           {
-            name: '高等数学'
+            name: '四季豆炒豆腐干'
           },
           {
-            name: '数据结构'
+            name: '红烧千页豆腐'
           },
           {
-            name: '想我这样的人'
+            name: '肉炒三丝'
           },
           {
-            name: '成功需要多少年'
+            name: '家常西红柿烧茄子'
           },
           {
-            name: '哪怕遍体鳞伤，也要活得漂亮'
+            name: '炒香菇'
           },
           {
-            name: '缴电话费的老人'
+            name: '家常醋溜豆腐丝'
           },
           {
-            name: '如何成为一个内心强大的人'
+            name: '家常可乐鸡翅'
           },
           {
-            name: '走过四十载怎能忘记'
-          },
-          {
-            name: 'c语言'
-          },
-          {
-            name: '面向对象程序设计'
-          },
-          {
-            name: '高等数学'
-          },
-          {
-            name: '数据结构'
-          },
-          {
-            name: '想我这样的人'
-          },
-          {
-            name: '成功需要多少年'
-          },
-          {
-            name: '哪怕遍体鳞伤，也要活得漂亮'
-          },
-          {
-            name: '缴电话费的老人'
-          },
-          {
-            name: '如何成为一个内心强大的人'
-          },
-          {
-            name: 'c语言'
-          },
-          {
-            name: '面向对象程序设计'
-          },
-          {
-            name: '高等数学'
-          },
-          {
-            name: '数据结构'
-          },
-          {
-            name: '想我这样的人'
-          },
-          {
-            name: '成功需要多少年'
-          },
-          {
-            name: '哪怕遍体鳞伤，也要活得漂亮'
-          },
-          {
-            name: '缴电话费的老人'
-          },
-          {
-            name: '如何成为一个内心强大的人'
+            name: '蔬菜饼'
           }
         ],
         recipe: false,
@@ -464,7 +410,7 @@
     methods: {
       // 图片
       getImg(){
-        var _this = this;
+        let _this = this;
         if(_this.imgArr.length==9) {
           this.$swal({
             type: 'error',
@@ -473,9 +419,9 @@
             confirmButtonText: '确定'
           })
         } else {
-          var event = event || window.event;
-          var file = event.target.files[0];
-          var reader = new FileReader();
+          let event = event || window.event;
+          let file = event.target.files[0];
+          let reader = new FileReader();
           //转base64
           reader.onload = function(e) {
             _this.imgArr.push(e.target.result);
@@ -771,18 +717,7 @@
     border-radius: 8px;
     background: #ddd5d5;
   }
-  /*.text-place > pre {*/
-    /*display: block;*/
-    /*overflow: auto;*/
-    /*padding: 5px 10px;*/
-    /*border: 1px solid #eee;*/
-    /*whitewhite-space:pre-wrap; !* css-3 *!*/
-    /*whitewhite-space:-moz-pre-wrap; !* Mozilla, since 1999 **/
-    /*whitewhite-space:-pre-wrap; !* Opera 4-6 *!*/
-    /*whitewhite-space:-o-pre-wrap; !* Opera 7 *!*/
-    /*word-wrap:break-word; !* Internet Explorer 5.5+ *!*/
-    /*white-space: pre-wrap; !* Firefox *!*/
-  /*}*/
+
   .text-place p {
     display: flex;
     align-items: center;

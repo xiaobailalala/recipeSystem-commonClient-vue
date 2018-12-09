@@ -325,7 +325,8 @@ export default {
       })
     },
     goto (path) {
-      this.$router.replace(path)
+      let {href} = this.$router.resolve({path})
+      window.open(href,'_blank')
     }
   }
 }

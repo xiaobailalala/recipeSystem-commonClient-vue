@@ -12,6 +12,8 @@ import Selected from '../pages/Selected/Selected'
 import Shop from '../pages/Shop/Shop'
 import FoodWrite from '../pages/FoodWrite/FoodWrite'
 import RecipeDetail from '../pages/RecipeDetail/RecipeDetail'
+import SubProduction from '../pages/RecipeDetail/subProduction'
+import NodeDetail from '../pages/NodeDetail/NodeDetail'
 
 Vue.use(Router)
 
@@ -54,6 +56,13 @@ export default new Router({
       }
     },
     {
+      path: '/note/nodeDetail',
+      component: NodeDetail,
+      meta: {
+        showFooter: true
+      }
+    },
+    {
       path: '/recipes',
       component: Recipes,
       meta: {
@@ -63,6 +72,13 @@ export default new Router({
     {
       path: '/recipes/recipeDetail',
       component: RecipeDetail,
+      meta: {
+        showFooter: true
+      }
+    },
+    {
+      path: '/recipes/recipeDetail/subProduction',
+      component: SubProduction,
       meta: {
         showFooter: true
       }
