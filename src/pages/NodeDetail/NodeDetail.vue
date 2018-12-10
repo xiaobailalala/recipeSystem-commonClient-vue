@@ -2,13 +2,16 @@
   <div class="nodeContent">
     <div id="slideBox" class="slideBox">
       <div class="hd">
-        <ul><li>1</li><li>2</li><li>3</li></ul>
+        <ul>
+          <li v-for="(item,index) in slides" :key="index">
+          </li>
+        </ul>
       </div>
       <div class="bd">
         <ul>
-          <li><img src="static/images/nodeDetail/1.jpg" /></li>
-          <li><img src="static/images/nodeDetail/2.jpg" /></li>
-          <li><img src="static/images/nodeDetail/3.jpg" /></li>
+          <li v-for="(item,index) in slides" :key="index">
+            <img :src="item.img"/>
+          </li>
         </ul>
       </div>
     </div>
@@ -26,16 +29,19 @@
       </div>
       <div class="nodeTitle">
         <p class="title">打卡最美网红书店->隐藏在魔都英伦风小镇里的钟书阁</p>
-        <p>
-          <span>135774</span>浏览
-          <span>4691</span>收藏
+        <p class="spans">
+          <span><a href="">135774</a>浏览</span>
+          <span><a href="">4691</a>收藏</span>
+          <span><a href="">43544</a>点赞</span>
         </p>
+        <div class="buttons">
+          <button type="button" class="btn btn-warning">收藏</button>
+          <button type="button" class="btn btn-warning">点赞</button>
+        </div>
       </div>
     </div>
-
     <div class="textContent">
-      <pre>
-        对于我这种情愿早起跑步，也要到处寻觅美食的吃货来说，“拔草”是人生的一大快乐。
+      <pre>对于我这种情愿早起跑步，也要到处寻觅美食的吃货来说，“拔草”是人生的一大快乐。
 “粗糖”同样是一家集西餐、下午茶、酒吧为一体的音乐餐吧。但他却又如此的与众不同。餐吧的设计以法式风格为主，弥漫着复古、自然主义的调调，最突出的特征是贵族气十足。这种“贵”散发着人文和古典气息，舒适、优雅、安逸是它的内在气质。在这里用餐，你会感觉像在自己那设计豪华的法式别墅里用餐，温馨、闲适。听着优美的音乐，和三五好友举杯同饮。不喝酒就，可以来杯果香味浓郁的“莫吉托”或水果苏打。喝酒的，想刺激一点的，可以来杯“深水榨弹”或“僵尸”等等。酒水单上真的是应有尽有啊！
 这里的服务生大多是男生，面带笑容、服务周到，特别有耐心，上菜有一定的模式，撤空盘、换骨碟都很及时，应该给一个大大的。
 今天没有让服务生推荐菜品，按自己的喜欢点了几个，几乎每个都色香味俱全。
@@ -46,10 +52,34 @@
 粗糖梅汁肋排（图9)酸酸甜甜，猪排很大块，但很嫩，一点都不会柴。肋排应该提前腌制过，所以很入味。
 这家餐吧，绝对值得再次光顾。环境好、服务好、菜品好。妥妥的“三好餐吧”，一起来享受法式浪漫吧！
 地址:太湖新城湖景街苏州湾美食新天地翡翠石
-粗糖音乐餐厅酒吧(苏州湾店)
-      </pre>
+粗糖音乐餐厅酒吧(苏州湾店)</pre>
+      <p>
+        <span v-for="(item,index) in aite" :key="index"><i class="iconfont icon-aite"></i>{{item.name}}</span>
+        <span v-for="(item,index) in article" :key="index"><i class="iconfont icon-iconjing"></i>{{item.name}}</span>
+        <span v-for="(item,index) in recipe" :key="index"><i class="iconfont icon-svgwrite"></i>{{item.name}}</span>
+      </p>
+      <h4>2018-09-13 15:39</h4>
     </div>
-
+    <div class="comment">
+      <p>虾扯蛋的评论</p>
+      <div>
+        <img src="static/images/recipeDetail/browerImg.png" alt="">
+        <textarea class="form-control" rows="5" placeholder="没有你的评论是不完整的"></textarea>
+        <button type="button" class="btn btn-warning">{{btnText}}</button>
+        <span v-show="isReply">正在回复 {{reply}} 的评论...</span>
+        <span v-show="isReply" @click="cancleReply">x</span>
+      </div>
+      <li v-for="(item,index) in comment" :key="index">
+        <img :src="item.img" alt="">
+        <p class="who">
+          <span>{{item.name}}</span>
+          <span>{{item.time}}</span>
+          <a v-show="isId">删除</a>
+          <a @click="showReply(index)">回复</a>
+        </p>
+        <p class="content">{{item.content}}</p>
+      </li>
+    </div>
   </div>
 </template>
 
@@ -57,12 +87,99 @@
   export default {
     data() {
       return {
-
+        slides: [
+          {
+            img: 'static/images/nodeDetail/1.jpg'
+          },
+          {
+            img: 'static/images/nodeDetail/6.jpg'
+          },
+          {
+            img: 'static/images/nodeDetail/3.jpg'
+          },
+          {
+            img: 'static/images/nodeDetail/4.jpg'
+          },
+          {
+            img: 'static/images/nodeDetail/5.jpg'
+          }
+        ],
+        aite: [
+          {
+            name: '我的平底锅呢'
+          },
+          {
+            name: '泡椒泡椒泡椒'
+          }
+        ],
+        recipe: [
+          {
+            name: '海鲜冬阴功汤'
+          },
+          {
+            name: '法式焗口菇'
+          }
+        ],
+        article: [
+          {
+            name: '音乐餐吧'
+          },
+          {
+            name: '美食新天地'
+          }
+        ],
+        comment: [
+          {
+            img:'static/images/recipeDetail/commentImg.png',
+            name: '小可爱',
+            time: '2018-12-01 05:24:56',
+            content: '看着看着就好吃看着就好吃看着就好吃看着就好吃看着就好吃看着就好吃看着就好吃看着就好吃看着就好吃看着就好吃就好吃'
+          },
+          {
+            img:'static/images/recipeDetail/commentImg.png',
+            name: '看到我请叫我去背单词',
+            time: '2018-12-01 05:24:56',
+            content: '看着就好吃'
+          },
+          {
+            img:'static/images/recipeDetail/commentImg.png',
+            name: '小右',
+            time: '2018-12-01 05:24:56',
+            content: '看着就好吃'
+          },
+          {
+            img:'static/images/recipeDetail/commentImg.png',
+            name: '工号9527',
+            time: '2018-12-01 05:24:56',
+            content: '看着就好吃'
+          },
+          {
+            img:'static/images/recipeDetail/commentImg.png',
+            name: 'ffgehge',
+            time: '2018-12-01 05:24:56',
+            content: '看着就好吃'
+          }
+        ],
+        btnText: '评论',
+        isId: true,
+        isReply:false,
+        reply:''
       }
     },
     mounted:function () {
       $('.slideBox').slide({mainCell: '.bd ul', effect: 'left', autoPlay: true})
     },
+    methods: {
+      showReply (index) {
+        this.reply = this.comment[index].name
+        this.isReply = true
+        this.btnText = '回复'
+      },
+      cancleReply () {
+        this.btnText = '评论',
+          this.isReply = false
+      }
+    }
   }
 </script>
 
@@ -73,20 +190,6 @@
     background-color: #fff;
     padding: 30px;
   }
-
-  .textContent > pre {
-    display: block;
-    overflow: auto;
-    padding: 5px 10px;
-    border: 1px solid #eee;
-    whitewhite-space: pre-wrap; /* css-3 */
-    whitewhite-space: -moz-pre-wrap;
-    /* Mozilla, since 1999 *
-     whitewhite-space:-pre-wrap; /* Opera 4-6 */
-    whitewhite-space: -o-pre-wrap; /* Opera 7 */
-    word-wrap: break-word; /* Internet Explorer 5.5+ */
-    white-space: pre-wrap; /* Firefox */
-  }
   .slideBox {
     width: 47%;
     display: inline-block;
@@ -94,7 +197,7 @@
     margin-right: 30px;
     overflow: hidden;
     position: relative;
-    border: 1px solid #ddd;
+    border-radius: 10px;
     vertical-align: top;
   }
   .slideBox .hd {
@@ -113,8 +216,9 @@
   .slideBox .hd ul li {
     float: left;
     margin-right: 5px;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
     line-height: 14px;
     text-align: center;
     background: #fff;
@@ -134,6 +238,7 @@
     height: 350px;
     overflow: hidden;
     object-fit: cover;
+    border-radius: 10px;
   }
 
 
@@ -144,13 +249,17 @@
   .author {
     padding: 15px;
     width: 100%;
-    background-color: silver;
+    background-color: #F5F5F5;
+    border-radius: 5px;
   }
   .author>h2 {
     position: relative;
-    padding-left: 65px;
+    padding-left: 60px;
     height: 50px;
     line-height: 50px;
+  }
+  .author>h2>span {
+    font-weight: bold;
   }
   .author>h2>img {
     position: absolute;
@@ -183,18 +292,158 @@
   }
   .nodeTitle {
     width: 100%;
-    background-color: silver;
-    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    margin-top: 30px;
+    padding: 10px;
   }
   .title {
     font-size: 18px;
-    height: 48px;
-    line-height: 48px;
-    margin-top: 20px;
+    font-weight: bold;
+    height: 45px;
+    line-height: 45px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .nodeTitle>p:last-of-type {
+  .spans {
+    height: 38px;
+    margin-top: 10px;
+    line-height: 38px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  .spans>span {
+    color: #333;
+    font-size: 14px;
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    border-right: 1px solid #ccc;
+  }
+  .spans>span:last-of-type {
+    border-right: none;
+  }
+  .buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+  .buttons>button {
+    width: 48%;
+  }
+
+  .textContent {
+    margin-top: 25px;
+  }
+  .textContent > pre {
+    display: block;
+    overflow: auto;
+    line-height: 1.5;
+    whitewhite-space: pre-wrap; /* css-3 */
+    whitewhite-space: -moz-pre-wrap;
+    whitewhite-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    white-space: pre-wrap; /* Firefox */
+    background-color: unset;
+    margin-bottom: 10px;
+  }
+  .textContent>p {
+    color: #337ab7;
+    height: 30px;
+    line-height: 30px;
+  }
+  .textContent>p>span {
+    margin-right: 20px;
+  }
+  .textContent > h4 {
+    float: right;
+  }
+
+  .comment {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .comment:before,
+  .comment:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .comment>p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    height: 48px;
+    line-height: 48px;
+  }
+  .comment>div {
+    position: relative;
+    padding-left: 70px;
+  }
+  .comment>div>img {
+    position: absolute;
+    width: 50px;
+    left: 0;
+  }
+  .comment>div>textarea {
+    resize: unset;
+    margin-bottom: 20px;
+  }
+  .comment>div>span {
+    font-size: 15px;
+    color: #666;
+    margin-left: 15px;
+  }
+  .comment>div>span:last-of-type {
+    font-size: 18px;
+    color: red;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    text-align: center;
+    margin-left: 0;
+    border: 1px solid red;
+    border-radius: 50%;
+  }
+  .comment>li {
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding-left: 65px;
+    min-height: 70px;
+    margin: 20px 0px;
+  }
+  .comment>li>img {
+    position: absolute;
+    left: 0px;
+    width: 50px;
+  }
+  .who {
+    font-size: 14px;
+    padding-top: 5px;
+  }
+  .who>span:first-of-type {
+    color: #844f33;
+    cursor: pointer;
+  }
+  .who>a {
+    margin-left: 15px;
+    color: #844f33;
+    cursor: pointer;
+  }
+  .who>a:hover {
+    color: red;
+  }
+  .who>span:last-of-type {
+    margin-left: 15px;
+    color: #777;
+  }
+  .content {
+    margin-top: 15px;
+    font-size: 15px;
+    line-height: 1.3;
+    margin-bottom: 20px;
   }
 </style>

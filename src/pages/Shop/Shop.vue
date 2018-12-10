@@ -9,20 +9,24 @@
           <ul v-for="(arr,index) in arrs" :key="index">
             <li @click="changeArr(index)"><img src="static/images/recipesImg/proone.gif" alt="">{{arr.title}}</li>
           </ul>
+          <h2><a href="">查看所有活动商品 >></a></h2>
         </div>
         <!--商品分类结束-->
       </div>
 
       <div class="proRight">
         <div class="proRightTitle">
-          <h2>厨具</h2>
+          <h2>厨具
+            <button type="button" class="btn btn-default">全部</button>
+            <button type="button" class="btn btn-default">活动商品</button>
+          </h2>
           <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 商铺 &gt; 厨具</div>
         </div>
         <div class="recContent">
 
           <!--菜单内容开始-->
           <ul class="recommend">
-            <li v-for="(infor,index) in empty" :key="index">
+            <li v-for="(infor,index) in empty" :key="index" @click="goto('/shop/shopDetail')">
               <a href="javascript:;" class="recomSize">
                 <img :src="infor.img" alt="" class="Img">
               </a>
@@ -463,6 +467,10 @@ export default {
   methods: {
     changeArr (index) {
       this.empty = this.arrContent[index].content
+    },
+    goto (path) {
+      let {href} = this.$router.resolve({path})
+      window.open(href,'_blank')
     }
   }
 }
@@ -529,7 +537,16 @@ export default {
   .sidenav > ul >li:hover  {
     color: #F08E02;
   }
+  .sidenav>h2 {
+    margin: 40px 0px 0px 30px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .sidenav>h2>a {
+    color: #333;
+    font-weight: bold;
 
+  }
   .proRight {
     float: right;
     width: 730px;
@@ -538,7 +555,6 @@ export default {
     background: #fff;
     padding: 0 38px 15px 32px;
   }
-
   .proRightTitle {
     padding-top: 20px;
     border-bottom: 1px solid #dbdbdb;
@@ -546,14 +562,18 @@ export default {
     width: 100%;
     height: 75px;
   }
-
   .proRightTitle > h2 {
     float: left;
     font-size: 30px;
     line-height: 1;
     color: #262626;
   }
-
+  .proRightTitle > h2>button{
+    height: 30px;
+  }
+  .proRightTitle > h2>button:first-of-type {
+    margin: 0px 0px 0px 20px;
+  }
   .bread {
     float: right;
     line-height: 12px;

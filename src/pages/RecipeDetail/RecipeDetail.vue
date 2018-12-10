@@ -1,121 +1,117 @@
 <template>
-    <div>
-      <div class="recipeHeader">
-        <img src="static/images/recipeDetail/headerImg.png" alt="">
-        <div class="recipeTitle">
-          <h2>虾扯蛋</h2>
-          <p>
-            天冷要吃肉，但是吃肉也要讲究科学，因为肉中的脂肪含量很高了，即使瘦肉也一样有脂肪。就像排骨，香，但是如果再过油炸或者煎，那岂不是热量更高啦！所以，我就喜欢做又简单又少油少盐的食物。吃惯了家里的饭菜，我家那位和儿子都不喜欢吃外面的，偶尔一顿外食也只是为了采采风，看看人家有什么新花样，多吃几口他们都会喊太油腻。所以，今天的这盘排骨清淡入味不油腻噢！</p>
-          <p>
-            <span>135774</span>浏览
-            <span>4691</span>收藏
-          </p>
-          <button type="button" class="btn">
-            <i class="iconfont icon-star"></i>
-            收藏
-          </button>
-        </div>
-    </div>
-      <div class="recipeProcess">
-        <div class="author">
-          <img src="static/images/recipeDetail/headImg.png" alt="">
-          <h4>米瑞的美食日记 <span>2018.07.08</span></h4>
-          <i class="iconfont icon-nv"></i>
-        </div>
-        <div class="tips">
-          <label>所属类别</label>
-          <span>主食->饼->肉夹馍</span>
-          <span>主食->饼->手抓饼</span>
-        </div>
-        <div class="tips">
-          <label>小贴士</label>
-          <span>低糖</span>
-          <span>高盐</span>
-        </div>
-        <div class="material">
-          <p>主料</p>
-          <li v-for="(item,index) in mater" :key="index">{{item.name}}<span>{{item.number}}</span></li>
-        </div>
-        <div class="left">
-          <div class="process">
-            <p>虾扯蛋的做法步骤</p>
-            <li v-for="(item,index) in process" :key="index">
-              <img :src="item.img" alt="">
-              <span>{{index+1}}</span>
-              <p>
-                {{item.content}}
-              </p>
-            </li>
-            <button type="button" class="btn btn-warning" @click="goto('/recipes/recipeDetail/subProduction')">上传我做的的这道菜</button>
-          </div>
-          <div class="comment">
-            <p>虾扯蛋的评论</p>
-            <div>
-              <img src="static/images/recipeDetail/browerImg.png" alt="">
-              <textarea class="form-control" rows="5" placeholder="没有你的评论是不完整的"></textarea>
-              <button type="button" class="btn btn-warning">{{btnText}}</button>
-              <span v-show="isReply">正在回复 {{reply}} 的评论...</span>
-              <span v-show="isReply" @click="cancleReply">x</span>
-            </div>
-            <li v-for="(item,index) in comment" :key="index">
-              <img :src="item.img" alt="">
-              <p class="who">
-                <span>{{item.name}}</span>
-                <span>{{item.time}}</span>
-                <a v-show="isId">删除</a>
-                <a @click="showReply(index)">回复</a>
-              </p>
-              <p class="content">{{item.content}}</p>
-            </li>
-          </div>
-        </div>
-        <div class="right">
-          <div class="others">
-            <p>收藏了该菜谱的人还收藏了:</p>
-            <li v-for="(item,index) in others" :key="index">
-              <img :src="item.img" alt="">
-              <p>{{item.title}}</p>
-              <span>{{item.collect}}收藏</span>
-            </li>
-
-          </div>
-          <div id="demoContent">
-            <div class="effect">
-              <div id="topMarquee" class="topLoop">
-                <div class="hd">
-                  <span>相关作品</span>
-                  <i class="iconfont icon-xiangshang next"></i>
-                  <i class="iconfont icon-xiangxia prev"></i>
-                </div>
-                <div class="bd">
-                  <ul class="picList">
-                    <li>
-                      <div class="pic"><a href=""><img src="static/images/recipeDetail/ad1.jpg"/></a></div>
-                      <div class="title"><a href="">iphone疯抢诶</a></div>
-                    </li>
-                    <li>
-                      <div class="pic"><a href=""><img src="static/images/recipeDetail/ad2.jpg"/></a></div>
-                      <div class="title"><a href="">数码家电厮杀呀呀呀</a></div>
-                    </li>
-                    <li>
-                      <div class="pic"><a href=""><img src="static/images/recipeDetail/ad3.jpg"/></a></div>
-                      <div class="title"><a href="">备战双十一</a></div>
-                    </li>
-                    <li>
-                      <div class="pic"><a href=""><img src="static/images/recipeDetail/ad4.jpg"/></a></div>
-                      <div class="title"><a href="">冬季热卖</a></div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
+  <div>
+    <div class="recipeHeader">
+      <img src="static/images/recipeDetail/headerImg.png" alt="">
+      <div class="recipeTitle">
+        <h2>虾扯蛋</h2>
+        <p>
+          天冷要吃肉，但是吃肉也要讲究科学，因为肉中的脂肪含量很高了，即使瘦肉也一样有脂肪。就像排骨，香，但是如果再过油炸或者煎，那岂不是热量更高啦！所以，我就喜欢做又简单又少油少盐的食物。吃惯了家里的饭菜，我家那位和儿子都不喜欢吃外面的，偶尔一顿外食也只是为了采采风，看看人家有什么新花样，多吃几口他们都会喊太油腻。所以，今天的这盘排骨清淡入味不油腻噢！</p>
+        <p>
+          <span>135774</span>浏览
+          <span>4691</span>收藏
+        </p>
+        <button type="button" class="btn">
+          <i class="iconfont icon-star"></i>
+          收藏
+        </button>
       </div>
     </div>
+    <div class="recipeProcess">
+      <div class="author">
+        <img src="static/images/recipeDetail/headImg.png" alt="">
+        <h4>米瑞的美食日记 <span>2018.07.08</span></h4>
+        <i class="iconfont icon-nv"></i>
+      </div>
+      <div class="tips">
+        <label>所属类别</label>
+        <span>主食->饼->肉夹馍</span>
+        <span>主食->饼->手抓饼</span>
+      </div>
+      <div class="tips">
+        <label>小贴士</label>
+        <span>低糖</span>
+        <span>高盐</span>
+      </div>
+      <div class="material">
+        <p>主料</p>
+        <li v-for="(item,index) in mater" :key="index">{{item.name}}<span>{{item.number}}</span></li>
+      </div>
+      <div class="left">
+        <div class="process">
+          <p>虾扯蛋的做法步骤</p>
+          <li v-for="(item,index) in process" :key="index">
+            <img :src="item.img" alt="">
+            <span>{{index+1}}</span>
+            <p>
+              {{item.content}}
+            </p>
+          </li>
+          <button type="button" class="btn btn-warning" @click="goto('/recipes/recipeDetail/subProduction')">上传我做的的这道菜
+          </button>
+        </div>
+        <div class="comment">
+          <p>虾扯蛋的评论</p>
+          <div>
+            <img src="static/images/recipeDetail/browerImg.png" alt="">
+            <textarea class="form-control" rows="5" placeholder="没有你的评论是不完整的"></textarea>
+            <button type="button" class="btn btn-warning">{{btnText}}</button>
+            <span v-show="isReply">正在回复 {{reply}} 的评论...</span>
+            <span v-show="isReply" @click="cancleReply">x</span>
+          </div>
+          <li v-for="(item,index) in comment" :key="index">
+            <img :src="item.img" alt="">
+            <p class="who">
+              <span>{{item.name}}</span>
+              <span>{{item.time}}</span>
+              <a v-show="isId">删除</a>
+              <a @click="showReply(index)">回复</a>
+            </p>
+            <p class="content">{{item.content}}</p>
+          </li>
+        </div>
+      </div>
+      <div class="right">
+        <div class="others">
+          <p>收藏了该菜谱的人还收藏了:</p>
+          <li v-for="(item,index) in others" :key="index">
+            <img :src="item.img" alt="">
+            <p>{{item.title}}</p>
+            <span>{{item.collect}}收藏</span>
+          </li>
+
+        </div>
+        <div id="topMarquee" class="topLoop">
+          <div class="hd">
+            <span>相关作品</span>
+            <i class="iconfont icon-xiangshang next"></i>
+            <i class="iconfont icon-xiangxia prev"></i>
+          </div>
+          <div class="bd">
+            <ul class="picList">
+              <li>
+                <div class="pic"><a href=""><img src="static/images/recipeDetail/ad1.jpg"/></a></div>
+                <div class="title"><a href="">iphone疯抢诶</a></div>
+              </li>
+              <li>
+                <div class="pic"><a href=""><img src="static/images/recipeDetail/ad2.jpg"/></a></div>
+                <div class="title"><a href="">数码家电厮杀呀呀呀</a></div>
+              </li>
+              <li>
+                <div class="pic"><a href=""><img src="static/images/recipeDetail/ad3.jpg"/></a></div>
+                <div class="title"><a href="">备战双十一</a></div>
+              </li>
+              <li>
+                <div class="pic"><a href=""><img src="static/images/recipeDetail/ad4.jpg"/></a></div>
+                <div class="title"><a href="">冬季热卖</a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -611,27 +607,20 @@ export default {
     line-height: 1.3;
     margin-bottom: 20px;
   }
-  #demoContent {
-    width: 100%;
-    margin-top: 100px;
-  }
-  #demoContent:before,
-  #demoContent:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-  .effect {
-    width: 100%;
-  }
 
   .topLoop {
+    margin-top: 100px;
     overflow: hidden;
     position: relative;
     /*border: 1px solid #ccc;*/
     width: 100%;
   }
-
+  .topLoop:before,
+  .topLoop:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
   .topLoop .hd {
     overflow: hidden;
     height: 30px;
@@ -655,37 +644,29 @@ export default {
     overflow: hidden;
     cursor: pointer;
   }
-
-  .topLoop .hd .next {
-  }
-
   .topLoop .bd {
     border: 1px solid #eee;
     border-radius: 10px;
     padding: 10px 20px;
   }
-
   .topLoop .bd ul {
     overflow: hidden;
     zoom: 1;
     /*background-color: #337ab7;*/
   }
-
   .picList li {
     width: 100%;
-    height: 170px;
+    min-height: 190px;
     margin-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px solid #ddd;
   }
-
   .picList .pic {
     text-align: center;
     line-height: 0px;
     width: 100%;
     height: 150px;
   }
-
   .picList .pic img {
     width: 100%;
     height: 100%;
@@ -698,8 +679,9 @@ export default {
     color: #666;
     font-size: 16px;
   }
-
   .picList .title {
-    line-height: 24px;
+    height: 30px;
+    line-height: 30px;
+
   }
 </style>

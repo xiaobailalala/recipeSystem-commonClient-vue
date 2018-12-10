@@ -14,6 +14,7 @@ import FoodWrite from '../pages/FoodWrite/FoodWrite'
 import RecipeDetail from '../pages/RecipeDetail/RecipeDetail'
 import SubProduction from '../pages/RecipeDetail/subProduction'
 import NodeDetail from '../pages/NodeDetail/NodeDetail'
+import ShopDetail from '../pages/ShopDetail/ShopDetail'
 
 Vue.use(Router)
 
@@ -97,6 +98,13 @@ export default new Router({
     {
       path: '/shop',
       component: Shop,
+      meta: {
+        showFooter: true
+      }
+    },
+    {
+      path: '/shop/shopDetail',
+      component: ShopDetail,
       meta: {
         showFooter: true
       }
