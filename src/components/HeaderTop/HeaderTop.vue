@@ -7,9 +7,21 @@
         <img src="static/images/headerTop/logo.png" alt="logo">
       </a>
       <!--顶部登录注册-->
-      <div id="logOrReg">
+      <div id="logOrReg" v-show="!userInfo">
         <span><a href="javascript:;" @click="goto('/login')">登录</a></span>
         <span><a href="javascript:;" @click="goto('/register')">注册</a></span>
+      </div>
+      <div class="loginSuccess" v-show="userInfo">
+        <span>{{userInfo.fusername}}</span>
+        <div>
+          <span>
+            <img :src="userInfo.fcover" alt="头像">
+          </span>
+            <ul v-show="showMenu">
+              <li  @click="goto('/personal')">个人中心</li>
+              <li>退出登录</li>
+            </ul>
+        </div>
       </div>
     </div>
     <div class="clear"></div>
@@ -60,11 +72,45 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    goto (path) {
-      this.$router.replace(path)
+  // import { mapState } from 'vuex'
+  export default {
+    data () {
+      return {
+        // personalInfo: store.personalInfo,
+        // loginUser: 'dfdsaf',//storageUtil.loginUser(),
+        // isLogin: true,//storageUtil.isLogin(),
+        showMenu: false,
+        userInfo: false
+        // userImg: ''
+      }
+    },
+    // computed: mapState({
+    //   // let data = window.localStorage.getItem('data')
+    //   personalInfo: state => {
+    //     return state.personalInfo
+    //   }
+    // }),
+    computed: {
+      personalInfo() {
+        let localData = window.localStorage.getItem('data')
+        if(this.$store.state.personalInfo===0&&localData) {
+          this.$store.commit('updateInfo', localData)//同步操作
+        }
+        console.log("----> " + localData);
+        this.userInfo = JSON.parse(localData);
+      }
+    },
+    mounted: function () {
+      $('.loginSuccess>div').hover(() => {
+        this.showMenu = true
+      },() => {
+        this.showMenu = false
+      });
+    },
+    methods: {
+      goto (path) {
+        this.$router.replace(path)
+      }
     }
   }
-}
 </script>

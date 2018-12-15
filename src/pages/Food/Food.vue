@@ -91,7 +91,7 @@
 
 <script>
 // import PubSub from 'pubsub-js'
-// import axios from 'axios'
+import axios from 'axios'
 // Vue实例
 export default {
   data () {
@@ -139,7 +139,8 @@ export default {
         },
         {
           'name': '猪脑'
-        }],
+        }
+        ],
       configTag: {
         radius: 140,
         maxFont: 26,
@@ -150,10 +151,27 @@ export default {
       }
     }
   },
+  mounted :function () {
+    let lis = this
+    axios.get(process.env.API_ROOT+'/vue/material/randomDataList')
+      .then(function (res) {
+        res.data.data.forEach(item => item.name = item.fname)
+        lis.hotTag = res.data.data
+      })
+      .catch(function (err) {
+        console.log(err)
+    })
+  },
   methods: {
     clickTagItem (tag) {
       // TODO
-      console.log(tag)
+      axios.get(process.env.API_ROOT+'',tag.fid)
+        .then((res)=> {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   }
 }

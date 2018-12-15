@@ -10,13 +10,13 @@
               <img src="static/images/recipesImg/proone.gif" alt="">
               <a href="javascript:;" @click="bindMenu(index)" class="sidenava">
                 <p>
-                  {{item.content }}
+                  {{item.fname }}
                   <i class="iconfont" :class="item.style"></i>
                 </p>
               </a>
               <transition name="slide-fade">
                 <ol v-if="item.isShow" class="secMenu">
-                  <li v-for="(item1, index1) in item.second" data-index="index1" :key="index1">{{item1}}</li>
+                  <li v-for="(item1, index1) in item.classifyTwos" @click="showThird(index,index1)" data-index="index1" :key="index1">{{item1.fname}}</li>
                 </ol>
               </transition>
             </li>
@@ -27,91 +27,44 @@
 
       <div class="proRight">
         <div class="proRightTitle">
-          <h2>热门</h2>
-          <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 食谱分类 &gt; 热门</div>
+          <h2>热门 <span>{{position1}}{{position2}}{{position3}}</span></h2>
+          <div class="bread">当前位置： <a href="/" class="crumb">首页</a> &gt; 食谱分类</div>
         </div>
         <div class="recContent">
 
           <!--三级菜单开始-->
           <ul class="thMenu">
-            <li>视频菜谱</li>
-            <li>苦瓜</li>
-            <li>丝瓜</li>
-            <li>茭白</li>
-            <li>西红柿</li>
-            <li>土豆</li>
-            <li>茄子</li>
-            <li>菠菜</li>
-            <li>豆角</li>
+            <li v-for="(item,index) in thirdList" @click="showLast(index)" :key="index">
+              {{item.fname}}
+            </li>
           </ul>
           <!--三级菜单结束-->
 
           <!--菜单内容开始-->
           <ul class="menuContent">
-            <li @click="goto('/recipes/recipeDetail')">
+            <li @click="goto('/recipes/recipeDetail')" v-for="(item,index) in lastList" :key="index">
               <div>
-                <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
-                </a>
+                <img :src="item.recipe.fcover" alt="产品标题六" class="Img">
               </div>
-              <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
+              <p>{{item.recipe.fname}}</p>
             </li>
-            <li>
-              <div>
-                <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
-                </a>
-              </div>
-              <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
-            </li>
-            <li>
-              <div>
-                <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
-                </a>
-              </div>
-              <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
-            </li>
-            <li>
-              <div>
-                <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
-                </a>
-              </div>
-              <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
-            </li>
-            <li>
-              <div>
-                <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
-                </a>
-              </div>
-              <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
-            </li>
-            <li>
-              <div>
-                <a href="javascript:;" title="产品标题六" class="proImg">
-                  <img src="static/images/product/product1.png" alt="产品标题六" class="Img">
-                </a>
-              </div>
-              <p><a href="javascript:;" title="产品标题六" class="pg-color">产品标题六</a></p>
-            </li>
+            <p v-show="lastList.length===0">试点击上面分类或看看其他分类吧</p>
           </ul>
           <!--菜单内容结束-->
 
           <!--分页样式-->
-          <div aria-label="Page navigation" class="pageWrapper">
+          <div v-show="lastList.length!=0" aria-label="Page navigation" class="pageWrapper">
               <ul class="pagination">
                 <li>
                   <a href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                   </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                <li v-for="index in lastList.length%6"><a href="#">{{index}}</a></li>
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--<li><a href="#">4</a></li>-->
+                <!--<li><a href="#">5</a></li>-->
                 <li>
                   <a href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
@@ -128,208 +81,129 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      menuList: [
-        {
-          content: '热门',
-          second: [
-            '热门食材',
-            '家常菜',
-            '下饭菜',
-            '快手菜',
-            '减肥食谱'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '蔬菜',
-          second: [
-            '时令蔬菜',
-            '瓜类',
-            '绿叶蔬菜',
-            '菌类',
-            '根茎蔬菜',
-            '豆科'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '菜式菜系',
-          second: [
-            '菜式',
-            '中国菜',
-            '外国菜'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '主食',
-          second: [
-            '面食',
-            '饼',
-            '西式主食',
-            '粥',
-            '米饭'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '肉类大全',
-          second: [
-            '猪肉',
-            '鸡肉',
-            '牛肉',
-            '羊肉',
-            '其他'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '热门',
-          second: [
-            '热门食材',
-            '家常菜',
-            '下饭菜',
-            '快手菜',
-            '减肥食谱'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '蔬菜',
-          second: [
-            '时令蔬菜',
-            '瓜类',
-            '绿叶蔬菜',
-            '菌类',
-            '根茎蔬菜',
-            '豆科'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '菜式菜系',
-          second: [
-            '菜式',
-            '中国菜',
-            '外国菜'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '主食',
-          second: [
-            '面食',
-            '饼',
-            '西式主食',
-            '粥',
-            '米饭'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '肉类大全',
-          second: [
-            '猪肉',
-            '鸡肉',
-            '牛肉',
-            '羊肉',
-            '其他'
-          ],
-          isShow: false
-        },
-        {
-          content: '热门',
-          second: [
-            '热门食材',
-            '家常菜',
-            '下饭菜',
-            '快手菜',
-            '减肥食谱'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '蔬菜',
-          second: [
-            '时令蔬菜',
-            '瓜类',
-            '绿叶蔬菜',
-            '菌类',
-            '根茎蔬菜',
-            '豆科'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '菜式菜系',
-          second: [
-            '菜式',
-            '中国菜',
-            '外国菜'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '主食',
-          second: [
-            '面食',
-            '饼',
-            '西式主食',
-            '粥',
-            '米饭'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        },
-        {
-          content: '肉类大全',
-          second: [
-            '猪肉',
-            '鸡肉',
-            '牛肉',
-            '羊肉',
-            '其他'
-          ],
-          isShow: false,
-          style: 'icon-right'
-        }
-      ]
-    }
-  },
-  methods: {
-    bindMenu (objIndex) {
-      const newArr = this.menuList
-      newArr.forEach(function (item, index) {
-        if (index === objIndex) {
-          newArr[index].isShow = !newArr[index].isShow
-          newArr[index].style = 'icon-down'
-        } else {
-          newArr[index].isShow = false
-          newArr[index].style = 'icon-right'
-        }
+  import axios from 'axios'
+  export default {
+    data () {
+      return {
+        // 一二级菜单
+        menuList: [
+          {
+
+          }
+        ],
+        // 三级菜单
+        thirdList: '',
+        // 四级菜单
+        lastList: '',
+        // 当前位置
+        position1: '热门>',
+        position2: '热门食材',
+        position3: '',
+        // 该分类是否有食谱
+        lastListLength: '',
+        noRecipe: ''
+      }
+    },
+    mounted: function() {
+      let _this = this
+      // 获取一二级菜单
+      axios.get(process.env.API_ROOT+'/vue/cla/getAllInfo')
+      .then(function (res) {
+        console.log(res)
+        // 加入字段
+        res.data.data.forEach(item => {
+          item.style = 'icon-right'
+          item.isShow = false
+        })
+        _this.menuList = res.data.data
+        // 获取三级菜单
+        _this.thirdList = _this.menuList[0].classifyTwos[0].classifies
+
+        // 根据二级获取四级菜单（食谱封面名称
+        axios.get(process.env.API_ROOT+'/vue/recipe/getRecipeInfoByClaId',{
+          params: {
+            twoId: _this.menuList[0].classifyTwos[0].fid,
+            threeId: 0
+          }
+        })
+          .then(function (res) {
+            // 获取食谱详情对应的数组
+            _this.lastList = res.data.data.counts
+            // 更改图片路径
+            _this.lastList.forEach(item => {
+              item.recipe.fcover = process.env.RES_PATH + item.recipe.fcover
+            })
+          })
+          .catch(function(err) {
+            console.log(err)
+          })
+      })
+      .catch(function(err) {
+        console.log(err)
       })
     },
-    goto (path) {
-      let {href} = this.$router.resolve({path})
-      window.open(href,'_blank')
+    methods: {
+      bindMenu (objIndex) {
+        const newArr = this.menuList
+        newArr.forEach(function (item, index) {
+          if (index === objIndex) {
+            newArr[index].isShow = !newArr[index].isShow
+            newArr[index].style = 'icon-down'
+          } else {
+            newArr[index].isShow = false
+            newArr[index].style = 'icon-right'
+          }
+        })
+      },
+      goto (path) {
+        let {href} = this.$router.resolve({path})
+        window.open(href,'_blank')
+      },
+      showThird (index,index1) {
+        let lis = this
+        lis.position2 = lis.menuList[index].classifyTwos[index1].fname
+        // 获取食谱封面名称
+        axios.get(process.env.API_ROOT+'/vue/recipe/getRecipeInfoByClaId',{
+          params: {
+            twoId: lis.menuList[index].classifyTwos[index1].fid,
+            threeId: 0
+          }
+        })
+          .then(function (res) {
+            lis.lastList = res.data.data.counts
+            lis.lastList.forEach(item => {
+              item.recipe.fcover = process.env.RES_PATH + item.recipe.fcover
+            })
+            console.log(lis.lastList)
+          })
+          .catch(function(err) {
+            console.log(err)
+          })
+        lis.thirdList = lis.menuList[index].classifyTwos[index1].classifies
+      },
+      showLast (index) {
+        let lis = this
+        lis.position3 = '>' + lis.thirdList[index].fname
+        // 获取食谱封面名称
+        axios.get(process.env.API_ROOT+'/vue/recipe/getRecipeInfoByClaId',{
+          params: {
+            twoId: 0,
+            threeId: lis.thirdList[index].fid
+          }
+        })
+          .then(function (res) {
+            lis.lastList = res.data.data.counts
+            lis.lastList.forEach(item => {
+              item.recipe.fcover = process.env.RES_PATH + item.recipe.fcover
+            })
+            console.log(lis.lastList)
+          })
+          .catch(function(err) {
+            console.log(err)
+          })
+      }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -434,7 +308,7 @@ export default {
   }
 
   .slide-fade-enter-active {
-    transition: all .3s ease;
+    transition: all 0.5s ease;
   }
 
   .slide-fade-enter, .slide-fade-leave-to {
@@ -466,7 +340,10 @@ export default {
     line-height: 1;
     color: #262626;
   }
-
+  .proRightTitle > h2>span {
+    font-size: 16px;
+    font-weight: unset;
+  }
   .bread {
     float: right;
     line-height: 12px;
@@ -497,7 +374,7 @@ export default {
   .thMenu > li {
     font-size: 18px;
     padding: 5px 10px;
-    margin: 20px;
+    margin: 10px 20px;
     cursor: pointer;
     display: inline-block;
     border: 1px dashed #795a43;
@@ -509,44 +386,50 @@ export default {
     padding: 0px 10px;
     overflow: hidden;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     vertical-align: center;
     flex-wrap: wrap;
   }
-
+  .menuContent> p {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+    line-height: 250px;
+    color: #666;
+  }
   .menuContent > li {
     height: 200px;
-    width: 30%;
+    width: 33%;
     float: left;
     overflow: hidden;
     position: relative;
     text-align: center;
   }
-
-  .menuContent > li > div {
-    margin: 3px auto;
-    position: relative;
-    margin: 0 auto;
-    width: 96.6%;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  .proImg {
-    width: 208px;
-    height: 156px;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  .pg-color {
-    width: 88%;
+  .menuContent>li>p {
+    width: 90%;
     margin: 0 auto;
     text-align: center;
     font: 14px/40px "microsoft yahei";
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    cursor: pointer;
+  }
+  .menuContent > li > div {
+    margin: 3px auto;
+    position: relative;
+    width: 90%;
+    height: 158px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+  .Img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
   }
 
   .pageWrapper {

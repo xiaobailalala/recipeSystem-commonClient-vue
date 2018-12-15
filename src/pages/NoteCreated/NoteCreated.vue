@@ -102,7 +102,6 @@
 </template>
 
 <script>
-  import Emotion from '../../components/Emotion/index'
   export default {
     data () {
       return {
@@ -517,7 +516,7 @@
       delArt (index) {
         console.log("删除")
         this.selectArt.splice(index,1)
-        if(this.selectArt.length==0) {
+        if(this.selectArt.length===0) {
           this.showArticle = false
         }
       },
@@ -554,14 +553,11 @@
           this.showRecipe = false
         }
       },
-    },
-    components: {
-      Emotion
     }
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   textarea {
     resize: none;
   }

@@ -16,15 +16,15 @@
             <h2>登录
               <span @click="goto('/register')">去注册></span>
             </h2>
-            <form action="">
+            <form>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="请输入手机号">
+                <input type="text" v-model="loginPhone" class="form-control" placeholder="请输入手机号">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="请输入密码">
+                <input type="password" v-model="loginPwd" class="form-control" placeholder="请输入密码">
               </div>
               <a href="">忘记密码&nbsp;></a>
-              <button class="btn btn-block">登录</button>
+              <button type="button" class="btn btn-block" @click="login">登录</button>
             </form>
           </div>
         <!--</section>-->
@@ -34,13 +34,81 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    goto (path) {
-      this.$router.replace(path)
+  import axios from 'axios'
+  export default {
+    data () {
+      return {
+        loginPhone: '',
+        loginPwd: ''
+      }
+    },
+    methods: {
+      goto (path) {
+        this.$router.replace(path)
+      },
+      login () {
+        let lis = this
+        console.log(lis.loginPhone)
+        console.log(lis.loginPwd)
+        var params = new URLSearchParams()
+        params.append('fAccount', lis.loginPhone)
+        params.append('fPassword', lis.loginPwd)
+        // 登录
+        axios({
+          method: 'POST',
+          url: process.env.API_ROOT + '/vue/commonUser/userLogin',
+          data: params,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+          .then(res => {
+            console.log('成功啦' + res)
+            localStorage.setItem('token', res.data.data)
+            console.log(localStorage.getItem('token'))
+            lis.$store.commit('changeLogin', '100')     //登录后改变登录状态 isLogin = 100;
+            var params1 = new URLSearchParams()
+            params1.append('token', localStorage.getItem('token'))
+            // 获取个人信息
+            axios({
+              method: 'POST',
+              url: process.env.API_ROOT + '/vue/commonUser/getUserInfoByToken',
+              data: params1,
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              }
+            })
+              .then(res => {
+                console.log('成功啦' + res.data.data)
+                // 根据token获取个人信息
+                if (res.data.data.fcover) {
+                  res.data.data.fcover = process.env.RES_PATH + res.data.data.fcover
+                }
+                else {
+                  if (res.data.data.fsex == '男') {
+                    res.data.data.fcover = 'static/images/headerTop/man.png'
+                  }
+                  else {
+                    res.data.data.fcover = 'static/images/headerTop/woman.png'
+                  }
+                }
+                lis.$store.commit('personalInfo', res.data.data)
+                let redirect = decodeURIComponent(lis.$route.query.redirect || '/')
+                lis.$router.push({
+                  path: redirect
+                })
+              })
+              .catch(err => {
+                console.log('出错啦'+err)
+              })
+            // this.$router.push('home')
+          })
+          .catch(err => {
+            console.log('出错啦'+err)
+          })
+      }
     }
   }
-}
 </script>
 
 <style scoped>

@@ -335,6 +335,21 @@ export default {
       ]
     }
   },
+  mounted: function(){
+    if (status == 401) {
+      //判断当前的路由是否是目标路由
+      if(router.currentRoute.name == "target"){
+        //跳转回login路由，并把目标路由的url路径保存在login的query中
+        router.replace({
+          name:"login",
+          query: {redirect: router.currentRoute.fullPath}
+        })
+      }else{
+        /* 普通401拦截直接返回到登录页面 */
+        router.push('/login');
+      }
+    }
+  },
   methods: {
     // 获取图片base64实现预览
     getImgBase (e) {
