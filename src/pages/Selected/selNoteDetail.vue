@@ -85,9 +85,26 @@
 </template>
 
 <script>
-export default {
-
-}
+  import axios from 'axios'
+  export default {
+    data () {
+      return {
+        note: '',
+      }
+    },
+    mounted: function() {
+      axios.get(process.env.API_ROOT + '/vue/article/getInfoAndRecipeList')
+        .then(res => {
+          console.log(res)
+          res.data.articleList.forEach(item=>{
+            item.commonUser.fcover
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+  }
 </script>
 
 <style>

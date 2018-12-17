@@ -7,19 +7,19 @@
         <img src="static/images/headerTop/logo.png" alt="logo">
       </a>
       <!--顶部登录注册-->
-      <div id="logOrReg" v-show="!userInfo">
+      <div id="logOrReg" v-show="!token">
         <span><a href="javascript:;" @click="goto('/login')">登录</a></span>
         <span><a href="javascript:;" @click="goto('/register')">注册</a></span>
       </div>
-      <div class="loginSuccess" v-show="userInfo">
-        <span>{{userInfo.fusername}}</span>
+      <div class="loginSuccess" v-show="token">
+        <span>{{personalInfo.fusername}}</span>
         <div>
           <span>
-            <img :src="userInfo.fcover" alt="头像">
+            <img :src="personalInfo.fcover" alt="头像">
           </span>
             <ul v-show="showMenu">
               <li  @click="goto('/personal')">个人中心</li>
-              <li>退出登录</li>
+              <li @click="exitLogin">退出登录</li>
             </ul>
         </div>
       </div>
@@ -76,28 +76,28 @@
   export default {
     data () {
       return {
-        // personalInfo: store.personalInfo,
-        // loginUser: 'dfdsaf',//storageUtil.loginUser(),
-        // isLogin: true,//storageUtil.isLogin(),
+        token: '',
         showMenu: false,
-        userInfo: false
-        // userImg: ''
+        // userInfo: false
       }
     },
-    // computed: mapState({
-    //   // let data = window.localStorage.getItem('data')
-    //   personalInfo: state => {
-    //     return state.personalInfo
-    //   }
-    // }),
     computed: {
       personalInfo() {
+        let flag
+        this.token = localStorage.getItem('token')
         let localData = window.localStorage.getItem('data')
+        // console.log('点击刷新后'+this.$store.state.personalInfo)
         if(this.$store.state.personalInfo===0&&localData) {
+          flag =1
           this.$store.commit('updateInfo', localData)//同步操作
         }
-        console.log("----> " + localData);
-        this.userInfo = JSON.parse(localData);
+        // console.log("读取store" + this.$store.state.personalInfo.fusername);
+        if(flag === 1){
+          return JSON.parse(this.$store.state.personalInfo)
+        }
+        else {
+          return this.$store.state.personalInfo
+        }
       }
     },
     mounted: function () {
@@ -106,10 +106,14 @@
       },() => {
         this.showMenu = false
       });
+
     },
     methods: {
       goto (path) {
         this.$router.replace(path)
+      },
+      exitLogin () {
+        this.$store.commit('clearInfo')
       }
     }
   }

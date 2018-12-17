@@ -51,3 +51,7 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
+Vue.prototype.headers = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+}

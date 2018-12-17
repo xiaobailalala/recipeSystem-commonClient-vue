@@ -48,8 +48,6 @@
       },
       login () {
         let lis = this
-        console.log(lis.loginPhone)
-        console.log(lis.loginPwd)
         var params = new URLSearchParams()
         params.append('fAccount', lis.loginPhone)
         params.append('fPassword', lis.loginPwd)
@@ -59,52 +57,77 @@
           url: process.env.API_ROOT + '/vue/commonUser/userLogin',
           data: params,
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+
           }
         })
           .then(res => {
-            console.log('成功啦' + res)
-            localStorage.setItem('token', res.data.data)
-            console.log(localStorage.getItem('token'))
-            lis.$store.commit('changeLogin', '100')     //登录后改变登录状态 isLogin = 100;
-            var params1 = new URLSearchParams()
-            params1.append('token', localStorage.getItem('token'))
-            // 获取个人信息
-            axios({
-              method: 'POST',
-              url: process.env.API_ROOT + '/vue/commonUser/getUserInfoByToken',
-              data: params1,
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              }
-            })
-              .then(res => {
-                console.log('成功啦' + res.data.data)
-                // 根据token获取个人信息
-                if (res.data.data.fcover) {
-                  res.data.data.fcover = process.env.RES_PATH + res.data.data.fcover
+            console.log(res)
+            if(res.data.code === 501){
+              this.$swal({
+                text: '用户不存在，是否注册？',
+                // type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '确定',
+                cancelButtonText: '取消'
+              }).then((res) => {
+                if (res.value) {
+                  this.$router.replace('/register')
                 }
-                else {
-                  if (res.data.data.fsex == '男') {
-                    res.data.data.fcover = 'static/images/headerTop/man.png'
+              })
+            }
+            else if(res.data.code === 502){
+              this.$swal({
+                type: 'error',
+                showCancelButton: false,
+                text: '密码错误!',
+                confirmButtonText: '确定'
+              })
+            }
+            else {
+              localStorage.setItem('token', res.data.data)
+              lis.$store.commit('changeLogin', '100')     //登录后改变登录状态 isLogin = 100;
+              var params1 = new URLSearchParams()
+              params1.append('token', localStorage.getItem('token'))
+              // 获取个人信息
+              axios({
+                method: 'POST',
+                url: process.env.API_ROOT + '/vue/commonUser/getUserInfoByToken',
+                data: params1,
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                }
+              })
+                .then(res => {
+                  // 根据token获取个人信息
+                  if (res.data.data.fcover) {
+                    res.data.data.fcover = process.env.RES_PATH + res.data.data.fcover
                   }
                   else {
-                    res.data.data.fcover = 'static/images/headerTop/woman.png'
+                    if (res.data.data.fsex == '男') {
+                      res.data.data.fcover = 'static/images/headerTop/man.png'
+                    }
+                    else {
+                      res.data.data.fcover = 'static/images/headerTop/woman.png'
+                    }
                   }
-                }
-                lis.$store.commit('personalInfo', res.data.data)
-                let redirect = decodeURIComponent(lis.$route.query.redirect || '/')
-                lis.$router.push({
-                  path: redirect
+                  // console.log('存进来时'+res.data.data.fusername)
+                  lis.$store.commit('personalInfo', res.data.data)
+                  let redirect = decodeURIComponent(lis.$route.query.redirect || '/')
+                  if(redirect === '/register') {
+                    this.$router.push('/homepage')
+                  }
+                  lis.$router.push({
+                    path: redirect
+                  })
                 })
-              })
-              .catch(err => {
-                console.log('出错啦'+err)
-              })
-            // this.$router.push('home')
+                .catch(err => {
+                  console.log('出错1'+err)
+                })
+              // this.$router.push('home')
+            }
           })
           .catch(err => {
-            console.log('出错啦'+err)
+            console.log('出错2'+err)
           })
       }
     }

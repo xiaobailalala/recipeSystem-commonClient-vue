@@ -14,6 +14,7 @@
 <script>
 import select1 from './selNoteDetail'
 import select2 from './selFoodDetail'
+
 export default {
   data () {
     return {

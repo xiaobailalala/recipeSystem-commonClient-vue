@@ -19,20 +19,20 @@ const mutations = {
   },
   personalInfo(state,data){
     state.personalInfo = data
-    console.log('我是state.personalInfo'+state.personalInfo)
-    console.log('我是名字'+state.personalInfo.fusername)
+    // console.log('赋给store时'+state.personalInfo.fusername)
     localStorage.setItem('data',JSON.stringify(state.personalInfo));
+    // console.log('存入缓存时'+JSON.parse(localStorage.getItem('data')).fusername)
   },
   updateInfo(state,data) {
     state.personalInfo = data
-    console.log('我是data'+data)
-    console.log('我是state.personalInfo'+state.personalInfo)
-    console.log('我是名字'+state.personalInfo.fusername)
+    // console.log('刷新后的缓存'+data.fusername)
+    // console.log('刷新后的名字'+state.personalInfo.fusername)
     localStorage.setItem('data',state.personalInfo);
   },
   clearInfo(state){
     state.personalInfo = 0
-    localStorage.setItem('data','');
+    localStorage.removeItem('token');
+    localStorage.removeItem('data');
   }
 };
 

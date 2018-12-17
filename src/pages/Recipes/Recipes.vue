@@ -86,11 +86,7 @@
     data () {
       return {
         // 一二级菜单
-        menuList: [
-          {
-
-          }
-        ],
+        menuList: [],
         // 三级菜单
         thirdList: '',
         // 四级菜单

@@ -13,7 +13,7 @@
         </div>
 
         <!--换一批开始-->
-        <button type="button" class="btn btn-primary change" >换一批</button>
+        <button type="button" class="btn btn-primary change" @click="changeFood">换一批</button>
         <!--换一批结束-->
         <div class="col-lg-6">
           <div class="input-group">
@@ -27,64 +27,17 @@
       <!--搜索框结束-->
     </div>
     <div class="foodContent">
-      <ul class="searchContent">
-        <li>
+      <ul class="searchContent" v-show="hasRecipe">
+        <li v-for="(item,index) in showRecipe" :key="index">
           <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
+            <img :src="item.recipe.fcover" alt="" class="Img">
           </a>
-          <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend1.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">椰汁桂花糕</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">lanty</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">芹菜炒肉</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">芹菜炒肉</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">芹菜炒肉</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
-        </li>
-        <li>
-          <a href="javascript:;" class="searchSize">
-            <img src="../../../static/images/recommend/recommend2.png" alt="" class="Img">
-          </a>
-          <a href="javascript:;" class="colorChange">芹菜炒肉</a>
-          <p>by &nbsp;<a href="javascript:;" class="colorChange">林吵吵</a></p>
+          <a href="javascript:;" class="colorChange">{{item.recipe.fname}}</a>
+          <p>by &nbsp;<a href="javascript:;" class="colorChange">{{item.recipe.commonUser.fusername}}</a></p>
+          <p><span>{{item.fname}}</span>{{item.fnumber}}</p>
         </li>
       </ul>
+      <p v-show="!hasRecipe">{{tips}}</p>
     </div>
   </div>
 </template>
@@ -96,59 +49,18 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      hotTag: [
-        {
-          'id': 'wewrwe222165',
-          'name': '猪脾'
-        },
-        {
-          'name': '腊肠'
-        },
-        {
-          'name': '猪耳朵'
-        },
-        {
-          'name': '肥肉'
-        },
-        {
-          'name': '肉馅'
-        },
-        {
-          'name': '肥肠'
-        },
-        {
-          'name': '后臀尖'
-        },
-        {
-          'name': '咸肉'
-        },
-        {
-          'name': '兔头'
-        },
-        {
-          'name': '猪油'
-        },
-        {
-          'name': '熏肉'
-        },
-        {
-          'name': '午餐肉'
-        },
-        {
-          'name': '肉松'
-        },
-        {
-          'name': '猪脑'
-        }
-        ],
+      hotTag: [],
       configTag: {
         radius: 140,
         maxFont: 26,
         color: '#808080', // '#808080'
         rotateAngleXbase: 350,
         rotateAngleYbase: 350,
-        hover: false
-      }
+        hover: false,
+      },
+      hasRecipe: false,
+      showRecipe: [],
+      tips: ''
     }
   },
   mounted :function () {
@@ -165,11 +77,39 @@ export default {
   methods: {
     clickTagItem (tag) {
       // TODO
-      axios.get(process.env.API_ROOT+'',tag.fid)
+      axios.get(process.env.API_ROOT+'/vue/recipe/getDataByMid',{
+        params: {
+          mid: tag.fid
+        }
+      })
         .then((res)=> {
-          console.log(res)
+          if(res.data.data.dataList.length>0){
+            console.log(res.data.data.dataList)
+          }
+          res.data.data.dataList.forEach(item => {
+            item.recipe.fcover = process.env.RES_PATH + item.recipe.fcover
+          })
+          this.showRecipe = res.data.data.dataList
+          if(this.showRecipe.length>0){
+            this.hasRecipe = true
+          }
+          else {
+            this.hasRecipe = false
+            this.tips = '该食材没有对应的食谱'
+          }
         })
         .catch((err) => {
+          console.log(err)
+        })
+    },
+    changeFood () {
+      let lis = this
+      axios.get(process.env.API_ROOT+'/vue/material/randomDataList')
+        .then(function (res) {
+          res.data.data.forEach(item => item.name = item.fname)
+          lis.hotTag = res.data.data
+        })
+        .catch(function (err) {
           console.log(err)
         })
     }
@@ -276,9 +216,18 @@ export default {
     font-size: 14px;
     clear: both;
   }
+  .searchContent>li>p:last-of-type>span {
+    color: #F08E02;
+    margin-right: 10px;
+  }
+  .foodContent>p {
+    font-size: 20px;
+    text-align: center;
+  }
   .colorChange {
-    color: black;
+    /*color: black;*/
     transition: all 0.2s linear;
+    color: #5A3721;
   }
   .colorChange:hover {
     color: #F08E02;

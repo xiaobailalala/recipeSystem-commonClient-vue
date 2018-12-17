@@ -16,18 +16,24 @@
         </h2>
         <form action="">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="请输入手机号">
+            <input type="text" class="form-control" v-model="tel" placeholder="请输入手机号">
+            <span v-show="telErr">请输入正确的手机号</span>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="请输入昵称">
+            <input type="text" class="form-control" v-model="verCode" placeholder="请输入验证码">
+            <button type="button" class="btn getBtn" v-show="!show">{{count}}</button>
+            <button type="button" class="btn getBtn" @click="countDown" v-show="show">获取验证码</button>
+            <span v-show="codeErr" class="btn-block">验证码不正确</span>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="请输入密码">
+            <input type="password" class="form-control" placeholder="请输入密码" v-model="pwd1">
+            <span v-show="pwdNull"  class="btn-block">密码不能为空</span>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="确认密码">
+            <input type="password" class="form-control" placeholder="确认密码" v-model="pwd2">
+            <span v-show="pwdErr"  class="btn-block">两次密码不匹配</span>
           </div>
-          <button class="btn btn-block">登录</button>
+          <button class="loginBtn btn btn-block" @click="register">登录</button>
         </form>
       </div>
     </section>
@@ -35,10 +41,140 @@
 </template>
 
 <script>
-export default {
+  import axios from 'axios'
+  export default {
+  data () {
+    return {
+      tel: '',
+      telErr: false,
+      count: '',
+      timer: null,
+      show: true,
+      verCode: '',
+      code: '',
+      codeErr: false,
+      pwd1: '',
+      pwdNull: false,
+      pwd2: '',
+      pwdErr: false
+    }
+  },
+  watch: {
+    tel(val) {
+      if(!(/^1[34578]\d{9}$/.test(val))){
+        this.telErr = true
+      }
+      else {
+        this.telErr = false
+      }
+    },
+    pwd1(val) {
+      if(!val){
+        this.pwdNull = true
+      }
+      else{
+        this.pwdNull = false
+      }
+    }
+  },
   methods: {
     goto (path) {
       this.$router.replace(path)
+    },
+    countDown () {
+      if(this.tel === ''){
+        this.$swal({
+          type: 'error',
+          showCancelButton: false,
+          text: '请输入手机号!',
+          confirmButtonText: '确定'
+        })
+      }
+      if(this.telErr){
+        this.$swal({
+          type: 'error',
+          showCancelButton: false,
+          text: '请输入正确的手机号!',
+          confirmButtonText: '确定'
+        })
+      }
+      else {
+        let params = new URLSearchParams()
+        params.append('num', this.tel)
+        axios({
+          method: 'POST',
+          url: process.env.API_ROOT+'/mob/common/getCode',
+          data: params,
+          header: this.header
+        })
+          .then(res => {
+            console.log(res)
+            this.code = res.data.code
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        let TIME_COUNT = 60;
+        if (!this.timer) {
+          this.count = TIME_COUNT+'s';
+          this.show = false;
+          this.timer = setInterval(() => {
+            if (TIME_COUNT > 0 && TIME_COUNT <= 60) {
+              TIME_COUNT--
+              this.count = TIME_COUNT +'s'
+            } else {
+              this.show = true;
+              clearInterval(this.timer);
+              this.timer = null;
+            }
+          }, 1000)
+        }
+      }
+    },
+    register () {
+      if(this.verCode !== this.code) {
+        this.verCode = ''
+        this.code = ''
+        this.codeErr = true
+      }
+      if(this.pwd1 !== this.pwd2){
+        this.pwd2 = ''
+        this.pwdErr = true
+      }
+      else if(!this.telErr&&!this.codeErr&&!this.pwdNull&&!this.pwdErr) {
+        let params = new URLSearchParams()
+        params.append('fAccount', this.tel)
+        params.append('fPassword', this.pwd1)
+        // 登录
+        axios({
+          method: 'POST',
+          url: process.env.API_ROOT + '/vue/commonUser/userReg',
+          data: params,
+          header: this.header
+        })
+          .then(res => {
+          console.log(res)
+          if(res.data.code === 402){
+            this.$swal({
+              text: '用户已存在，是否登录？',
+              // type: 'warning',
+              showCancelButton: true,
+              confirmButtonText: '确定',
+              cancelButtonText: '取消'
+            }).then((res) => {
+              if (res.value) {
+                this.$router.replace('/login')
+              }
+            })
+          }
+          else {
+            this.$router.replace('/login')
+          }
+        })
+          .catch(err => {
+            console.log('出错'+err)
+          })
+      }
     }
   }
 }
@@ -114,7 +250,14 @@ export default {
     padding: 35px 60px;
   }
   .form-group {
-    margin-bottom: 30px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  .form-group > span {
+    color: red;
+    font-size: 14px;
+    display: inline-block;
+    padding: 5px 0px;
   }
   .logContent>form>a {
     font-size: 15px;
@@ -122,9 +265,22 @@ export default {
     margin-bottom: 30px;
     color: #000;
   }
-  .btn {
+  .loginBtn {
     background-color: #EC7309;
     color: white;
     font-size: 16px;
+  }
+  .form-group:nth-of-type(2)>input {
+    color: #979797;
+    width: 66%;
+    vertical-align: top;
+    display: inline-block;
+  }
+  .getBtn {
+    background-color: #EC7309;
+    color: white;
+    width: 30%;
+    height: 35px;
+    float: right;
   }
 </style>
